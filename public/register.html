@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">    
-    <title>Daily Shop | Home</title>
+    <title>Daily Shop | Account Page</title>
     
     <!-- Font awesome -->
     <link href="css/font-awesome.css" rel="stylesheet">
@@ -20,7 +20,6 @@
     <link rel="stylesheet" type="text/css" href="css/nouislider.css">
     <!-- Theme color -->
     <link id="switcher" href="css/theme-color/default-theme.css" rel="stylesheet">
-    <!-- <link id="switcher" href="css/theme-color/bridge-theme.css" rel="stylesheet"> -->
     <!-- Top Slider CSS -->
     <link href="css/sequence-theme.modern-slide-in.css" rel="stylesheet" media="all">
 
@@ -38,10 +37,10 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-  
 
   </head>
-  <body> 
+  <body>
+  
    <!-- wpf loader Two -->
     <div id="wpf-loader-two">          
       <div class="wpf-loader-two-inner">
@@ -49,7 +48,7 @@
       </div>
     </div> 
     <!-- / wpf loader Two -->       
-  <!-- SCROLL TOP BUTTON -->
+ <!-- SCROLL TOP BUTTON -->
     <a class="scrollToTop" href="#"><i class="fa fa-chevron-up"></i></a>
   <!-- END SCROLL TOP BUTTON -->
 
@@ -106,7 +105,7 @@
                   <li class="hidden-xs"><a href="wishlist.html">Wishlist</a></li>
                   <li class="hidden-xs"><a href="cart.html">My Cart</a></li>
                   <li class="hidden-xs"><a href="checkout.html">Checkout</a></li>
-                  <li><a href="/login" data-toggle="modal" data-target="#login-modal">Login</a></li>
+                  <li><a href="" data-toggle="modal" data-target="#login-modal">Login</a></li>
                 </ul>
               </div>
             </div>
@@ -167,7 +166,7 @@
                       </span>
                     </li>
                   </ul>
-                  <a class="aa-cartbox-checkout aa-primary-btn" href="checkout.html">Checkout</a>
+                  <a class="aa-cartbox-checkout aa-primary-btn" href="#">Checkout</a>
                 </div>
               </div>
               <!-- / cart box -->
@@ -204,7 +203,7 @@
           <div class="navbar-collapse collapse">
             <!-- Left nav -->
             <ul class="nav navbar-nav">
-              <li><a href="/">Home</a></li>
+              <li><a href="index.html">Home</a></li>
               <li><a href="#">Men <span class="caret"></span></a>
                 <ul class="dropdown-menu">                
                   <li><a href="#">Casual</a></li>
@@ -295,7 +294,7 @@
                   <li><a href="#">Accesories</a></li>                
                 </ul>
               </li>
-              <li><a href="/products">Product list</a></li>            
+              <li><a href="#">Furniture</a></li>            
               <li><a href="blog-archive.html">Blog <span class="caret"></span></a>
                 <ul class="dropdown-menu">                
                   <li><a href="blog-archive.html">Blog Style 1</a></li>
@@ -303,25 +302,68 @@
                   <li><a href="blog-single.html">Blog Single</a></li>                
                 </ul>
               </li>
-              <li><a href="/contact">Contact</a></li>
-              {{!-- <li><a href="#">Pages <span class="caret"></span></a>
+              <li><a href="contact.html">Contact</a></li>
+              <li><a href="#">Pages <span class="caret"></span></a>
                 <ul class="dropdown-menu">                
-                  <li><a href="/products">Shop Page</a></li>
+                  <li><a href="product.html">Shop Page</a></li>
                   <li><a href="product-detail.html">Shop Single</a></li>                
                   <li><a href="404.html">404 Page</a></li>                
                 </ul>
-              </li> --}}
+              </li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
-      </div>       
+      </div> 
+      </div>
     </div>
   </section>
-  <!-- / menu -->
-  
-{{{body}}}
+  <!-- / menu -->  
+ 
+  <!-- catg header banner section -->
+  <section id="aa-catg-head-banner">
+    <img src="img/fashion/fashion-header-bg-8.jpg" alt="fashion img">
+    <div class="aa-catg-head-banner-area">
+     <div class="container">
+      <div class="aa-catg-head-banner-content">
+        <h2>Register</h2>
+        <ol class="breadcrumb">
+          <li><a href="index.html">Home</a></li>                   
+          <li class="active">Account</li>
+        </ol>
+      </div>
+     </div>
+   </div>
+  </section>
+  <!-- / catg header banner section -->
 
-  <!-- footer section start-->  
+ <!-- Cart view section -->
+ <section id="aa-myaccount">
+   <div class="container">
+     <div class="row">
+       <div class="col-md-12">
+        <div class="aa-myaccount-area">         
+            <div class="row">
+              <div class="col-md-12">
+                <div class="aa-myaccount-register">                 
+                 <h4>Register</h4>
+                 <form action="" class="aa-login-form">
+                    <label for="">Username or Email address<span>*</span></label>
+                    <input type="text" placeholder="Username or email">
+                    <label for="">Password<span>*</span></label>
+                    <input type="password" placeholder="Password">
+                    <button type="submit" class="aa-browse-btn">Register</button>                    
+                  </form>
+                </div>  
+              </div>
+            </div>          
+         </div>
+       </div>
+     </div>
+   </div>
+ </section>
+ <!-- / Cart view section -->
+
+  <!-- footer -->  
   <footer id="aa-footer">
     <!-- footer bottom -->
     <div class="aa-footer-top">
@@ -413,8 +455,7 @@
       </div>
     </div>
   </footer>
-  <!-- / footer section end-->
-
+  <!-- / footer -->
   <!-- Login Modal -->  
   <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -431,14 +472,16 @@
             <label for="rememberme" class="rememberme"><input type="checkbox" id="rememberme"> Remember me </label>
             <p class="aa-lost-password"><a href="#">Lost your password?</a></p>
             <div class="aa-register-now">
-              Don't have an account?<a href="/register">Register now!</a>
+              Don't have an account?<a href="account.html">Register now!</a>
             </div>
           </form>
         </div>                        
       </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
-  </div>    
+  </div>
 
+
+    
   <!-- jQuery library -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -459,6 +502,7 @@
   <script type="text/javascript" src="js/nouislider.js"></script>
   <!-- Custom js -->
   <script src="js/custom.js"></script> 
+  
 
   </body>
 </html>
