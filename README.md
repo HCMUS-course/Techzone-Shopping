@@ -1,1 +1,1 @@
-# Final project for web develpement course in HCMUS
+# Final project for web developement course in HCMUS
