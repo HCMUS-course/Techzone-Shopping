@@ -12,4 +12,4 @@
 | 19127324 | Dao Duy An | duyan0612@gmail.com |
 | 19127622 | Ngo Truong Tuyen | ngotuyen781@gmail.com |
 
-**Host:** https://web-app-2ta.herokuapp.com/
+**Host:** https://techzones-2ta.herokuapp.com/
