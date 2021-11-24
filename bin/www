@@ -7,13 +7,19 @@
 var app = require('../app');
 var debug = require('debug')('eshop:server');
 var http = require('http');
+require('dotenv').config()
+var connectMongoDB=require('../config/db')
 
 /**
  * Get port from environment and store in Express.
  */
 
+
 var port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
+
+//Connect mongo DB
+connectMongoDB()
 
 /**
  * Create HTTP server.
