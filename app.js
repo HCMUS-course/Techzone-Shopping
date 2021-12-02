@@ -6,9 +6,10 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+
 const registerRouter = require('./routes/register');
 const loginRouter = require('./routes/login');
-const productsRouter = require('./routes/products');
+const productsRouter = require('./bin/components/products');
 const productDetailsRouter = require('./routes/product-details');
 const contactRouter = require('./routes/contact');
 
@@ -17,6 +18,9 @@ var app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
+
+app.use("/products", express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, "public")));
 
 app.use(logger('dev'));
 app.use(express.json());
