@@ -18,5 +18,5 @@ exports.list = async function(req,res){
 
 exports.detail = async function(req,res){
     const product = await productService.detail(ObjectId(req.params.id));
-    res.render('products/product-details',{ product });
+    res.render('products/product-detail',{ product });
 };
