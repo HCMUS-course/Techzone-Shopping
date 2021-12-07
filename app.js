@@ -16,7 +16,7 @@ const contactRouter = require('./routes/contact');
 var app = express();
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', [path.join(__dirname, 'views'), path.join(__dirname, 'components')]);
 app.set('view engine', 'hbs');
 
 app.use("/products", express.static(path.join(__dirname, "public")));

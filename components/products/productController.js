@@ -11,12 +11,12 @@ exports.list = async function(req,res){
     const NumberOfProduct = await productService.getNumberOfProduct();
     pageCount = Math.round(NumberOfProduct/productPerPage);
     const pageArray = pagination(Number(page),pageCount);
-    res.render('products/list', {products,pageArray:pageArray});
+    res.render('products/views/list', {products,pageArray:pageArray});
     //const products = await productService.list();
     // res.render('products/list', {products});
 };
 
 exports.detail = async function(req,res){
     const product = await productService.detail(ObjectId(req.params.id));
-    res.render('products/product-detail',{ product });
+    res.render('products/views/product-detail',{ product });
 };
