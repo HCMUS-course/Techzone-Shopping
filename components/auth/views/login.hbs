@@ -21,6 +21,9 @@
                         <h4 class="login-title">Login</h4>
                         <div class="row">
                             <div class="col-md-12 col-12 mb-20">
+                                {{#if wrongPassword}}
+                                <label>Username or password is incorrect</label>
+                                {{/if}}
                                 <label>Username</label>
                                 <input class="mb-0" type="text" name="username" placeholder="Username">
                             </div>

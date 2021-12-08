@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const session = require('express-session')
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -12,6 +13,8 @@ const loginRouter = require('./routes/login');
 const productsRouter = require('./components/products');
 const productDetailsRouter = require('./routes/product-detail');
 const contactRouter = require('./routes/contact');
+const authRouter = require('./components/auth');
+const passport = require("./passport");
 
 var app = express();
 
@@ -28,7 +31,13 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+console.log(process.env.SESSION_SECRET);
+app.use(session({ secret: process.env.SESSION_SECRET }));
+app.use(passport.initialize());
+app.use(passport.session());
+
 app.use('/', indexRouter);
+app.use('/', authRouter);
 app.use('/users', usersRouter);
 app.use('/register', registerRouter);
 app.use('/login', loginRouter);
