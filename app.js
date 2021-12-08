@@ -43,10 +43,10 @@ app.use(function (req, res, next) {
 
 app.use('/', indexRouter);
 app.use('/', authRouter);
-app.use('/',productsRouter);
-app.use('/users', usersRouter);
 app.use('/register', registerRouter);
 app.use('/login', loginRouter);
+app.use('/',productsRouter);
+app.use('/users', usersRouter);
 app.use('/products', productsRouter);
 app.use('/product-detail', productDetailsRouter);
 app.use('/contact', contactRouter);
