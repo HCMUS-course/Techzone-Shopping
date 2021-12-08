@@ -48,7 +48,7 @@ app.use('/', authRouter);
 app.use('/register', registerRouter);
 app.use('/login', loginRouter);
 app.use('/',productsRouter);
-app.use('/users', loggedInUserGuard, usersRouter);
+app.use('/users/profile', loggedInUserGuard, usersRouter);
 app.use('/products', productsRouter);
 app.use('/product-detail', productDetailsRouter);
 app.use('/contact', contactRouter);
