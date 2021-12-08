@@ -72,7 +72,12 @@
                 <ul class="ht-menu">
                   <li><span><a href="/login">My Account</a></span></li>
                   <li><span><a href="checkout.html">Checkout</a></span></li>
-                  <li><span><a href="/login">Log in</a></span></li>
+                    {{#if user}}
+                        <li><span><a href="/logout">Sign out</a></span></li>
+                    {{else}}
+                        <li><span><a href="/login">Sign in</a></span></li>
+                    {{/if}}
+
                 </ul>
               </div>
             </div>
