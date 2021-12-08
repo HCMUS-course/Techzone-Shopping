@@ -70,14 +70,14 @@
             <div class="col-lg-9 col-md-8">
               <div class="header-top-right">
                 <ul class="ht-menu">
-                  <li><span><a href="/login">My Account</a></span></li>
-                  <li><span><a href="checkout.html">Checkout</a></span></li>
                     {{#if user}}
+                        Hello, {{user.fullname}}
                         <li><span><a href="/logout">Sign out</a></span></li>
                     {{else}}
                         <li><span><a href="/login">Sign in</a></span></li>
                     {{/if}}
-
+                  <li><span><a href="/login">My Account</a></span></li>
+                  <li><span><a href="checkout.html">Checkout</a></span></li>
                 </ul>
               </div>
             </div>

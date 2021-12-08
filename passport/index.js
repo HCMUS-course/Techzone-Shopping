@@ -16,11 +16,10 @@ passport.use(new LocalStrategy (
 ));
 
 passport.serializeUser(function(user, done) {
-    done(null, user.username);
+    done(null, {user: user.username, fullname: user.fullname});
 });
 
-passport.deserializeUser(async function(username, done) {
-    const user = await userService.findByUsername(username)
+passport.deserializeUser(async function(user, done) {
         done(null, user);
 });
 
