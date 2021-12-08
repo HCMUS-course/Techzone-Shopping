@@ -37,8 +37,8 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use('/', indexRouter);
-app.use('/',productsRouter)
-app.use('/', authRouter);
+app.use('/', authRouter)
+app.use('/',productsRouter);
 app.use('/users', usersRouter);
 app.use('/register', registerRouter);
 app.use('/login', loginRouter);
