@@ -3,15 +3,26 @@ const Product = require('./productModel');
 //exports.list = () => Product.find({}).lean();
 exports.detail = (id) => Product.findOne({_id : id}).lean();
 
-exports.list = (pageNum) => {
-    let perPage = 4; // số lượng sản phẩm xuất hiện trên 1 page
+exports.list = (pageNum,productPerPage) => {
+   // số lượng sản phẩm xuất hiện trên 1 page
     let page = pageNum || 1;
 
     return Product
         .find()
-        // find tất cả các data
-        .skip((perPage * page) - perPage) // Trong page đầu tiên sẽ bỏ qua giá trị là 0
-        .limit(perPage)
+        .skip((productPerPage * page)-productPerPage) // Trong page đầu tiên sẽ bỏ qua giá trị là 0
+        .limit(productPerPage)
+        .lean()
+        .exec()
+}
+
+exports.search = (pageNum,productPerPage,key) => {
+    let page = pageNum || 1;
+    let re = new RegExp(key);
+    const regexSearch= { $regex: re, $options: 'i' } ;
+    return Product
+        .find({name:regexSearch})
+        .skip((productPerPage * page) - productPerPage) // Trong page đầu tiên sẽ bỏ qua giá trị là 0
+        .limit(productPerPage)
         .lean()
         .exec()
 }
@@ -19,6 +30,13 @@ exports.list = (pageNum) => {
 
 exports.getNumberOfProduct = () => {
     return Product.countDocuments();
+}
+
+exports.getNumberOfSearchProduct = (key) => {
+    let re = new RegExp(key);
+    const regexSearch= { $regex: re, $options: 'i' } ;
+    return Product
+    .countDocuments({name:regexSearch});
 }
 
 exports.create =(req,res) =>{
