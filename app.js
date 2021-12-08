@@ -14,6 +14,8 @@ const productsRouter = require('./components/products');
 const productDetailsRouter = require('./routes/product-detail');
 const contactRouter = require('./routes/contact');
 const authRouter = require('./components/auth');
+const loggedInUserGuard = require('./middlewares/loggedInUserGuard');
+
 const passport = require("./passport");
 
 var app = express();
@@ -46,7 +48,7 @@ app.use('/', authRouter);
 app.use('/register', registerRouter);
 app.use('/login', loginRouter);
 app.use('/',productsRouter);
-app.use('/users', usersRouter);
+app.use('/users', loggedInUserGuard, usersRouter);
 app.use('/products', productsRouter);
 app.use('/product-detail', productDetailsRouter);
 app.use('/contact', contactRouter);
