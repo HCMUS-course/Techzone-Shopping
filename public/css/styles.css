@@ -1389,6 +1389,7 @@ textarea:focus {
 	-webkit-display: flex;
 	-moz-display: flex;
 	-ms--display: flex;
+	font-size: medium;
 }
 .ht-menu > li {
 	list-style: none;
@@ -1414,7 +1415,7 @@ textarea:focus {
 	padding-right: 0;
 }
 .ht-menu > li span {
-	font-size: 12px;
+	font-size: 16px;
 }
 /*Header Top Currency*/
 .currency-selector-wrapper, .language-selector-wrapper {

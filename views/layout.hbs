@@ -72,7 +72,12 @@
                 <ul class="ht-menu">
                   <li><span><a href="/login">My Account</a></span></li>
                   <li><span><a href="checkout.html">Checkout</a></span></li>
-                  <li><a href="/login" data-toggle="modal" data-target="#login-modal">Login</a></li>
+                    {{#if user}}
+                        <li><span><a href="/logout">Sign out</a></span></li>
+                    {{else}}
+                        <li><span><a href="/login">Sign in</a></span></li>
+                    {{/if}}
+
                 </ul>
               </div>
             </div>
@@ -97,7 +102,7 @@
             <!-- Begin Header Middle Right Area -->
             <div class="col-lg-9 pl-0 ml-sm-15 ml-xs-15">
               <!-- Begin Header Middle Searchbox Area -->
-              <form action="#" class="hm-searchbox">
+              <form action="/search" method="GET" class="hm-searchbox">
                 <select class="nice-select select-search-category">
                   <option value="0">All</option>
                   <option value="1">Laptops</option>
@@ -107,7 +112,8 @@
                   <option value="5">TV</option>
                   <option value="6">Accessories</option>
                 </select>
-                <input type="text" placeholder="Enter your search key ...">
+                <input type="text" name="key" placeholder="Enter your search key ...">
+                <input name="page" value=1 type="hidden">
                 <button class="li-btn" type="submit"><i class="fa fa-search"></i></button>
               </form>
               <!-- Header Middle Searchbox Area End Here -->
@@ -566,31 +572,6 @@
     </div>
     <!-- Quick View | Modal Area End Here -->
   </div>
-
-  <!-- Login Modal -->  
-  <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">                      
-        <div class="modal-body">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h4>Login or Register</h4>
-          <form class="aa-login-form" action="">
-            <label for="">Username or Email address<span>*</span></label>
-            <input type="text" placeholder="Username or email">
-            <label for="">Password<span>*</span></label>
-            <input type="password" placeholder="Password">
-            <button class="aa-browse-btn" type="submit">Login</button>
-            <label for="rememberme" class="rememberme"><input type="checkbox" id="rememberme"> Remember me </label>
-            <p class="aa-lost-password"><a href="#">Lost your password?</a></p>
-            <div class="aa-register-now">
-              Don't have an account?<a href="/register">Register now!</a>
-            </div>
-          </form>
-        </div>                        
-      </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-
-
 
   <!-- Body Wrapper End Here -->
   <!-- jQuery-V1.12.4 -->

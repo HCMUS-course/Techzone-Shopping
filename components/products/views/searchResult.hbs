@@ -1,5 +1,5 @@
 <!-- Favicon -->
-<link rel="shortcut icon" type="image/x-icon" href="./public/images/favicon.png">
+<link rel="shortcut icon" type="image/x-icon" href="../../../public/images/favicon.png">
 <!-- Material Design Iconic Font-V2.2.0 -->
 <link rel="stylesheet" href="css/material-design-iconic-font.min.css">
 <!-- Font Awesome -->
@@ -57,6 +57,10 @@
                     </a>
                 </div>
                 <!-- Li's Banner Area End Here -->
+                {{!-- SEACH RESULT NOTIFICATION --}}
+                <div class="active">
+                    Found <strong>{{numberOfSeachResult}}</strong> product for keyword <strong>"{{keyword}}"</strong>
+                </div>
                 <!-- shop-top-bar start -->
                 <div class="shop-top-bar mt-30">
                     <div class="shop-bar-inner">
@@ -143,18 +147,21 @@
                                     <!--<p>Showing 1-12 of 13 item(s)</p>-->
                                 </div>
                                 <div class="col-lg-6 col-md-6">
-                                    <ul class="pagination-box">
-                                    {{#each pageArray}}
-                                        <li><a href="../{{this}}">{{this}}</a></li>
-<!--                                        <li><a href="#" class="Previous"><i class="fa fa-chevron-left"></i> Previous</a>-->
-<!--                                        </li>-->
-<!--                                        <li class="active"><a href="#">1</a></li>-->
-<!--                                        <li><a href="#">2</a></li>-->
-<!--                                        <li><a href="#">3</a></li>-->
-<!--                                        <li>-->
-<!--                                            <a href="#" class="Next"> Next <i class="fa fa-chevron-right"></i></a>-->
-<!--                                        </li>-->
-                                    {{/each}}
+                                    <form id="searchForm" action="/search" method="GET">
+                                        <ul class="pagination-box">
+                                        {{#each pageArray}}
+                                            <li><a href="?key={{../keyword}}&page={{this}}" >{{this}}</a></li>
+                                     
+                                        <!--                                        <li><a href="#" class="Previous"><i class="fa fa-chevron-left"></i> Previous</a>-->
+                                        <!--                                        </li>-->
+                                        <!--                                        <li class="active"><a href="#">1</a></li>-->
+                                        <!--                                        <li><a href="#">2</a></li>-->
+                                        <!--                                        <li><a href="#">3</a></li>-->
+                                        <!--                                        <li>-->
+                                        <!--                                            <a href="#" class="Next"> Next <i class="fa fa-chevron-right"></i></a>-->
+                                        <!--                                        </li>-->
+                                        {{/each}}
+                                    </form>
                                     </ul>
                                 </div>
                             </div>

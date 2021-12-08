@@ -3,20 +3,23 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const session = require('express-session')
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 const registerRouter = require('./routes/register');
 const loginRouter = require('./routes/login');
-const productsRouter = require('./bin/components/products');
+const productsRouter = require('./components/products');
 const productDetailsRouter = require('./routes/product-detail');
 const contactRouter = require('./routes/contact');
+const authRouter = require('./components/auth');
+const passport = require("./passport");
 
 var app = express();
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', [path.join(__dirname, 'views'), path.join(__dirname, 'components')]);
 app.set('view engine', 'hbs');
 
 app.use("/products", express.static(path.join(__dirname, "public")));
@@ -28,7 +31,14 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+console.log(process.env.SESSION_SECRET);
+app.use(session({ secret: process.env.SESSION_SECRET }));
+app.use(passport.initialize());
+app.use(passport.session());
+
 app.use('/', indexRouter);
+app.use('/',productsRouter)
+app.use('/', authRouter);
 app.use('/users', usersRouter);
 app.use('/register', registerRouter);
 app.use('/login', loginRouter);
