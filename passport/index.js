@@ -24,7 +24,8 @@ passport.serializeUser(function(user, done) {
         fullname: user.fullname,
         email: user.email,
         phone: user.phone,
-        address: user.address
+        address: user.address,
+        _id:user._id,
     });
 });
 

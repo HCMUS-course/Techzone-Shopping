@@ -15,6 +15,8 @@ const productDetailsRouter = require('./routes/product-detail');
 const contactRouter = require('./routes/contact');
 const authRouter = require('./components/auth');
 const loggedInUserGuard = require('./middlewares/loggedInUserGuard');
+const searchRouter=require("./components/products/searchRouter")
+const cartRouter=require('./components/cart/index')
 
 const passport = require("./passport");
 
@@ -47,11 +49,13 @@ app.use('/', indexRouter);
 app.use('/', authRouter);
 app.use('/register', registerRouter);
 app.use('/login', loginRouter);
-app.use('/',productsRouter);
-app.use('/users/profile', loggedInUserGuard, usersRouter);
+app.use('/search',searchRouter);
+app.use('/users', loggedInUserGuard, usersRouter);
 app.use('/products', productsRouter);
 app.use('/product-detail', productDetailsRouter);
 app.use('/contact', contactRouter);
+app.use('/cart',loggedInUserGuard,cartRouter)
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

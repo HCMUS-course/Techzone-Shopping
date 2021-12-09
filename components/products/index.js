@@ -4,7 +4,7 @@ const productController = require('./productController');
 
 // DONT CHANGE THE ORDER OF ROUTE.GET()
 
-router.get('/search',productController.search)
+
 
 router.use('/:route', express.static('public'));
 router.get('/:page', productController.list);
