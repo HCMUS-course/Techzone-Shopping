@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-
+const commentSchemma=require("./product.comment.model")
 const productSchema = mongoose.Schema(
     {
         "productType": "",
@@ -40,17 +40,7 @@ const productSchema = mongoose.Schema(
         },
         "buyCounts": "",
         "viewCounts": "",
-        "comment": {
-            "total": "",
-            "items": [
-                {
-                    "name":"",
-                    "content":"",
-                    "date":"",
-                    "rate":""
-                }
-            ]
-        }
+        comment: [commentSchemma]
     }
 );
 
