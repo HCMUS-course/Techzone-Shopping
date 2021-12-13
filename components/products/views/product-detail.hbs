@@ -47,8 +47,8 @@
                                 <li><i class="fa fa-star-o"></i></li>
                                 <li class="no-star"><i class="fa fa-star-o"></i></li>
                                 <li class="no-star"><i class="fa fa-star-o"></i></li>
-                                <li class="review-item"><a href="#">Read Review</a></li>
-                                <li class="review-item"><a href="#">Write Review</a></li>
+                                <li class="review-item"><a href="#reviews" >Read Review</a></li>
+                                <li class="review-item"><a href="#" data-toggle="modal" data-target="#mymodal">Write Review</a></li>
                             </ul>
                         </div>
                         <div class="price-box pt-20">
@@ -160,8 +160,8 @@
             </div>
             <div id="reviews" class="tab-pane" role="tabpanel">
                 <div class="product-reviews">
-                    <div class="product-details-comment-block">
-                        <div class="comment-review">
+                    <div  class="product-details-comment-block">
+                        {{!-- <div class="comment-review">
                             <span>Grade</span>
                             <ul class="rating">
                                 <li><i class="fa fa-star-o"></i></li>
@@ -170,15 +170,21 @@
                                 <li class="no-star"><i class="fa fa-star-o"></i></li>
                                 <li class="no-star"><i class="fa fa-star-o"></i></li>
                             </ul>
+                        </div> --}}
+
+                        <div id="reviews-area">
+                            {{#each product.comment}}
+                      <div class="comment-author-infos pt-25">
+                                <span>{{username}}</span>
+                                <em>{{createAt}}</em>
+                                {{!-- <div class="comment-details"> --}}
+                                {{!-- <h4 class="title-block">Uiss macbook nhu cdb</h4> --}}
+                                <p>{{content}}</p>
+                            {{!-- </div> --}}
+                            </div> 
+                          {{/each}} 
                         </div>
-                        <div class="comment-author-infos pt-25">
-                            <span>HTML 5</span>
-                            <em>01-12-18</em>
-                        </div>
-                        <div class="comment-details">
-                            <h4 class="title-block">Demo</h4>
-                            <p>Plaza</p>
-                        </div>
+                   
                         <div class="review-btn">
                             <a class="review-links" href="#" data-toggle="modal" data-target="#mymodal">Write Your Review!</a>
                         </div>
@@ -206,7 +212,12 @@
                                                     <div class="feedback-area">
                                                         <div class="feedback">
                                                             <h3 class="feedback-title">Our Feedback</h3>
-                                                            <form action="#">
+                                                          
+                                                          
+                                                          
+                                                          {{!-- Comment form --}}
+                                                            <form id="comment-form" action="./comment" method="POST" >
+                                                            <input type="hidden" name="productId" value={{product._id}} id="product_id">
                                                                 <p class="your-opinion">
                                                                     <label>Your Rating</label>
                                                                     <span>
@@ -221,10 +232,10 @@
                                                                 </p>
                                                                 <p class="feedback-form">
                                                                     <label for="feedback">Your Review</label>
-                                                                    <textarea id="feedback" name="comment" cols="45" rows="8" aria-required="true"></textarea>
+                                                                    <textarea id="feedback" name="content" cols="45" rows="8" aria-required="true"></textarea>
                                                                 </p>
                                                                 <div class="feedback-input">
-                                                                    <p class="feedback-form-author">
+                                                                    {{!-- <p class="feedback-form-author">
                                                                         <label for="author">Name<span class="required">*</span>
                                                                         </label>
                                                                         <input id="author" name="author" value="" size="30" aria-required="true" type="text">
@@ -234,10 +245,10 @@
                                                                         </label>
                                                                         <input id="email" name="email" value="" size="30" aria-required="true" type="text">
                                                                         <span class="required"><sub>*</sub> Required fields</span>
-                                                                    </p>
+                                                                    </p> --}}
                                                                     <div class="feedback-btn pb-15">
                                                                         <a href="#" class="close" data-dismiss="modal" aria-label="Close">Close</a>
-                                                                        <a href="#">Submit</a>
+                                                                        <a href="#" onclick="document.getElementById('comment-form').submit()"  >Submit</a>
                                                                     </div>
                                                                 </div>
                                                             </form>
