@@ -1,4 +1,4 @@
-const commentServices = require('../components/products/product.comment.services');
+const commentServices = require('../../components/products/product.comment.services');
 
 module.exports.getComments=async (req,res)=>{
     const productId=req.params.id
