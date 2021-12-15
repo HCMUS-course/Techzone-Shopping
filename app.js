@@ -17,6 +17,7 @@ const authRouter = require('./components/auth');
 const loggedInUserGuard = require('./middlewares/loggedInUserGuard');
 const searchRouter=require("./components/products/searchRouter")
 const cartRouter=require('./components/cart/index')
+const ApiRouter=require('./api/index')
 
 const passport = require("./passport");
 
@@ -44,7 +45,6 @@ app.use(function (req, res, next) {
   res.locals.user = req.user;
   next();
 })
-
 app.use('/', indexRouter);
 app.use('/', authRouter);
 app.use('/register', registerRouter);
@@ -55,6 +55,8 @@ app.use('/products', productsRouter);
 app.use('/product-detail', productDetailsRouter);
 app.use('/contact', contactRouter);
 app.use('/cart',loggedInUserGuard,cartRouter)
+app.use('/api',ApiRouter)
+
 
 
 // catch 404 and forward to error handler

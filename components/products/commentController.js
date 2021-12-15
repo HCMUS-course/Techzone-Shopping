@@ -1,7 +1,7 @@
 const commentServices = require('./product.comment.services');
 const getCurentDate=require("../helper/getCurrentDate")
 module.exports.postComment=async (req,res)=>{
-    const productId=req.body.productId
+    const productId=req.params.id
     let username="Anonymous";
     if (req.user){
          username=req.user.username;
@@ -12,7 +12,8 @@ module.exports.postComment=async (req,res)=>{
         username:username,
     }
 
-    const comment=await commentServices.addComment(newcomment,productId)
-    // res.status(201).json(comment)
-    res.redirect("./")
+    const product=await commentServices.addComment(newcomment,productId)
+    const comment=product.comment
+    res.status(201).json(comment)
+    // res.redirect("./")
 }

@@ -1,22 +1,75 @@
-const { eventNames } = require("../../../components/products/productModel")
 
-
-  $("#comment-form input[type=submit]" ).on("click",function(event)
-  {
-      event.preventDefault();
-      $post(`/products/id/${$('#product_id').val()}/comment`,{
-            content:$('#feedback').val(),
-
-      },function(data){
-          const commentTemplate=Handlebars.compile(
-            " <div class='comment-author-infos pt-25'> <span>/{{username}}</span> <em>/{{createAt}}</em> <p>/{{content}}</p> </div> "
-          )
-          const commentHTML=commentTemplate(data)
-          $("#reviews-area").prepend(commentHTML)
+// $('body').bind('beforeunload',function(){
+  if($('#pagination').length){
+  $.get( `/api/${$("#product_id").val()}/comment`,function(data){
+    $(function () {
+      let container = $('#pagination');
+      console.log(data);
+      container.pagination({
+          dataSource: data,
+          pageSize: 3,
+          callback: function (data, pagination) {
+            console.log((data));
+              var dataHtml = '';
+  
+              $.each(data, function (index, item) {
+                  
+                  dataHtml +=`<div class='comment-author-infos pt-25'> <span> ${item.username} </span> <em> ${item.createAt} </em> <p> ${item.content} </p> </div>`
+              });
+              console.log(dataHtml);
+              $("#data-container").html(dataHtml);
+          }
       })
-    //   .fail(function(data){
-    //       if(data.status===401){
-    //           window.location.href=`/?redirect=${window.location.href}`;
-    //       }
-    //   })
   })
+  })
+
+}
+// });
+
+
+$("#review-submit").on("click", function (event) {
+  event.preventDefault();
+  $.post(
+    `/products/id/${$("#product_id").val()}/comment`,
+    {
+      content: $("#feedback").val(),
+    },
+    function (data) {
+
+        $(function () {
+            let container = $('#pagination');
+            console.log(data);
+            container.pagination({
+                dataSource: data,
+                pageSize: 3,
+                callback: function (data, pagination) {
+                    var dataHtml = '';
+        
+                    $.each(data, function (index, item) {
+                        // dataHtml += '<li>' + item.name + '</li>';
+                        dataHtml +=`<div class='comment-author-infos pt-25'> <span> ${item.username} </span> <em> ${item.createAt} </em> <p> ${item.content} </p> </div>`
+                    });
+        
+                    $("#data-container").html(dataHtml);
+                }
+            })
+        })
+
+      $("#review-area").empty();
+      $("#review-close").click();
+      $("html, body").animate(
+        {
+          scrollTop: $("#reviews").offset().top-100 ,
+        },
+        500
+      );
+    }
+  )
+  .fail(function (data) {
+    if (data.status === 401) {
+      window.location.href = `/?redirect=${window.location.href}`;
+    }
+  });
+});
+
+

@@ -171,8 +171,8 @@
                                 <li class="no-star"><i class="fa fa-star-o"></i></li>
                             </ul>
                         </div> --}}
-
-                        <div id="reviews-area">
+                         <div id="data-container"></div>
+                        {{!-- <div id="reviews-area">
                             {{#each product.comment}}
                       <div class="comment-author-infos pt-25">
                                 <span>{{username}}</span>
@@ -182,7 +182,12 @@
                                 <p>{{content}}</p>
                             {{!-- </div> --}}
                             </div> 
-                          {{/each}} 
+                       {{!-- {{/each}}  --}}
+                         
+                           
+                            <div id="pagination"></div>
+                            </br>
+                          
                         </div>
                    
                         <div class="review-btn">
@@ -247,8 +252,8 @@
                                                                         <span class="required"><sub>*</sub> Required fields</span>
                                                                     </p> --}}
                                                                     <div class="feedback-btn pb-15">
-                                                                        <a href="#" class="close" data-dismiss="modal" aria-label="Close">Close</a>
-                                                                        <a href="#" onclick="document.getElementById('comment-form').submit()"  >Submit</a>
+                                                                        <a id="review-close" href="#" class="close" data-dismiss="modal" aria-label="Close">Close</a>
+                                                                        <a  id="review-submit" href="#reviews-area" >Submit</a>
                                                                     </div>
                                                                 </div>
                                                             </form>
@@ -270,3 +275,6 @@
     </div>
 </div>
 <!-- Product Area End Here -->
+
+
+
