@@ -11,7 +11,6 @@ exports.list = async function(req,res){
     const pageCount = Math.ceil(NumberOfProduct/productPerPage);
     const pageArray = pagination(page,pageCount);
     res.render('products/views/list', {products,pageArray:pageArray});
-
 };
 
 exports.detail = async function(req,res){

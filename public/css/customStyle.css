@@ -129,3 +129,86 @@
         opacity: 1
     }
 }
+
+input#pwd {
+    /* width:180px;  */
+    padding:3px;
+    color: #000;
+    float:left;
+    margin-right:10px;
+}
+#pwd_strength_wrap {
+    border: 1px solid #D5CEC8;
+    display: none;
+    float: left;
+    padding: 10px;
+    /* position: relative; */
+    width: 320px;
+}
+#pwd_strength_wrap:before, #pwd_strength_wrap:after {
+    content: ' ';
+    height: 0;
+    position: absolute;
+    width: 0;
+    border: 10px solid transparent; /* arrow size */
+}
+#pwd_strength_wrap:before {
+border-bottom: 7px solid rgba(0, 0, 0, 0);
+border-right: 7px solid rgba(0, 0, 0, 0.1);
+border-top: 7px solid rgba(0, 0, 0, 0);
+content: "";
+display: inline-block;
+left: -18px;
+position: absolute;
+top: 10px;
+}
+#pwd_strength_wrap:after {
+    border-bottom: 6px solid rgba(0, 0, 0, 0);
+border-right: 6px solid #fff;
+border-top: 6px solid rgba(0, 0, 0, 0);
+content: "";
+display: inline-block;
+left: -16px;
+position: absolute;
+top: 11px;
+}
+#pswd_info ul {
+    list-style-type: none;
+    margin: 5px 0 0;
+    padding: 0;
+}
+#pswd_info ul li {
+    background: url(icon_pwd_strength.png) no-repeat left 2px;
+    padding: 0 0 0 20px;
+}
+#pswd_info ul li.valid {
+    background-position: left -42px;
+    color: green;
+}
+#passwordStrength {
+display: block;
+height: 5px;
+margin-bottom: 10px;
+transition: all 0.4s ease;
+}
+.strength0 {
+background: none; /* too short */
+width: 0px;
+}
+.strength1 {
+background: none repeat scroll 0 0 #FF4545;/* weak */
+width: 25px;
+}
+.strength2 {
+background: none repeat scroll 0 0 #FFC824;/* good */
+width: 75px;
+}
+.strength3 {
+    background: none repeat scroll 0 0 #6699CC;/* strong */
+width: 100px;
+}
+
+.strength4 {
+    background: none repeat scroll 0 0 #008000;/* best */
+width: 150px;
+}

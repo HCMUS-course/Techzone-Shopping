@@ -20,8 +20,11 @@
                         <h4 class="login-title">Register</h4>
                         <div class="row">
                             <div class="col-md-12 col-12 mb-20">
-                                <label>Username*</label>
-                                <input class="mb-0" type="username" name="username" placeholder="Username">
+                                <label>Username</label>
+                                 {{#unless validateAccess.isValidUsername}}
+                                <label style="color:red;">Username already used</label>
+                                {{/unless}}
+                                <input class="mb-0" type="username" name="username" placeholder="Username" required>
                             </div>
 <!--                            <div class="col-md-12 col-12 mb-20">-->
 <!--                                <label>Full Name</label>-->
@@ -29,7 +32,10 @@
 <!--                            </div>-->
                             <div class="col-md-12 mb-20">
                                 <label>Email</label>
-                                <input class="mb-0" type="email" name="email" placeholder="Email">
+                                 {{#unless validateAccess.isValidEmail}}
+                                <label style="color:red;">Email already used</label>
+                                {{/unless}}
+                                <input class="mb-0" type="email" name="email" placeholder="Email"required>
                             </div>
 <!--                            <div class="col-md-12 mb-20">-->
 <!--                                <label>Phone Number</label>-->
@@ -40,13 +46,38 @@
 <!--                                <input class="mb-0" type="text" placeholder="Address">-->
 <!--                            </div>-->
                             <div class="col-md-12 mb-20">
-                                <label>Password*</label>
-                                <input class="mb-0" type="password" name="password" placeholder="Password">
+                                <label>Password</label>
+                                 {{#unless validateAccess.isValidPassword}}
+                                <label style="color:red;">Password need at least 6 characters</label>
+                                    {{/unless}}
+                                {{!-- <input class="mb-0" type="password" name="password" placeholder="Password"> --}}
+                                <input class="mb-0" type="password" name="password" placeholder="     Password" id="pwd" required>
+                                <div id="pwd_strength_wrap">
+                                        <div id="passwordDescription">Password not entered</div>
+                                        <div id="passwordStrength" class="strength0"></div>
+                                        <div id="pswd_info">
+                                                <strong>Strong Password Tips:</strong>
+                                                <ul>
+                                                        <li class="invalid" id="length">At least 6 characters</li>
+                                                        <li class="invalid" id="pnum">At least one number</li>
+                                                        <li class="invalid" id="capital">At least one lowercase &amp; one uppercase letter</li>
+                                                        <li class="invalid" id="spchar">At least one special character</li>
+                                                </ul>
+                                        </div><!-- END pswd_info -->
+                                </div>
+                            </div>
+                             <div class="col-md-12 mb-20">
+                                <label>Comfirm password</label>
+                                  {{#unless validateAccess.isValidConfirmPassword}}
+                                <label style="color:red;">Your password and confirmation password do not match.</label>
+                                    {{/unless}}
+                                <input  class="mb-0" type="password" name="confirmPassword" placeholder="Comfirm password" required>
                             </div>
 <!--                            <div class="col-md-6 mb-20">-->
 <!--                                <label>Confirm Password</label>-->
 <!--                                <input class="mb-0" type="password" placeholder="Confirm Password">-->
 <!--                            </div>-->
+                            {{!-- <input type="hidden" name="failed-reg"> --}}
                             <div class="col-12">
                                 <button class="register-button mt-0">Register</button>
                             </div>

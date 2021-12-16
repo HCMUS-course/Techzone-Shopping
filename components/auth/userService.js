@@ -24,3 +24,17 @@ exports.register = async (username, email, password) => {
         address: ""
     });
 }
+
+exports.validateEmailAccessibility=async(email)=>{
+
+    return userModel.findOne({email: email}).then(function(result){
+         return result === null;
+    });
+ }
+
+ exports.validateUsernameAccessibility=async(username)=>{
+
+    return userModel.findOne({username: username}).then(function(result){
+         return result === null;
+    });
+ }
