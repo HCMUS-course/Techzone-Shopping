@@ -1,15 +1,15 @@
-const userService = require('./userService');
-const validateRegisterAccessibiliy=require("../helper/validateRegisterAccessibiliy")
+const authService = require('./authService');
+const validateRegisterAccessibiliy = require("../helper/validateRegisterAccessibiliy");
 
 exports.register = async (req, res) => {
     
     const {username, email, password,confirmPassword} = req.body;
-    const validateAccess=await validateRegisterAccessibiliy(username, email, password,confirmPassword)
+    const validateAccess = await validateRegisterAccessibiliy(username, email, password,confirmPassword);
     let validAccess=true;
     for(const isValidRegister in validateAccess){
-        if(validateAccess[isValidRegister]===false)
+        if(validateAccess[isValidRegister] === false)
         {
-            validAccess=false;
+            validAccess = false;
             break;
         }
     }
@@ -17,10 +17,10 @@ exports.register = async (req, res) => {
 
     if(!validAccess)
     {
-        res.render('auth/views/register',{validateAccess:validateAccess});
+        res.render('auth/views/register', {validateAccess:validateAccess});
     }
     else{
-        const user = await userService.register(username, email, password);
+        const user = await authService.register(username, email, password);
         res.redirect('/login');
     }
  

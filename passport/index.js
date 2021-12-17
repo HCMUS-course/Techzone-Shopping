@@ -1,14 +1,14 @@
 const passport = require('passport')
     , LocalStrategy = require('passport-local').Strategy;
 
-const userService = require('../components/auth/userService');
+const authService = require('../components/auth/authService');
 
 passport.use(new LocalStrategy (
     async function(username, password, done) {
-        const user = await userService.findByUsername(username);
+        const user = await authService.findByUsername(username);
         if (!user)
             return done(null, false, { message: 'Incorrect username.' });
-        const isValid = await userService.validPassword(password, user);
+        const isValid = await authService.validPassword(password, user);
         if (!isValid) {
             return done(null, false, { message: 'Incorrect password.' });
         }
