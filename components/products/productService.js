@@ -3,6 +3,15 @@ const Product = require('./productModel');
 //exports.list = () => Product.find({}).lean();
 exports.detail = (id) => Product.findOne({_id : id}).lean();
 
+exports.increaseViewCounts = async (id) =>{
+    await Product.updateOne({ _id: id },
+        { $inc: {viewCounts: 1}}
+    );
+}
+
+
+
+
 exports.list = (pageNum,productPerPage) => {
    // số lượng sản phẩm xuất hiện trên 1 page
     let page = pageNum || 1;

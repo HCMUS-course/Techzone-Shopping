@@ -41,17 +41,17 @@
                     <div class="product-info">
                     {{!-- <input id='product-detail' type="hidden" name="productDetail" value={{{product.}}}> --}}
                     <input id='user-info' type="hidden" name="userInfo" value={{user._id}}>
-
                         <h2>{{product.name}}</h2>
                         <div class="rating-box pt-20">
                             <ul class="rating rating-with-review-item">
+                                <li><i class="fa fa-eye"></i><a> {{product.viewCounts}} &nbsp;</a></li>
                                 <li><i class="fa fa-star-o"></i></li>
                                 <li><i class="fa fa-star-o"></i></li>
                                 <li><i class="fa fa-star-o"></i></li>
                                 <li class="no-star"><i class="fa fa-star-o"></i></li>
                                 <li class="no-star"><i class="fa fa-star-o"></i></li>
-                                <li class="review-item"><a href="#reviews" >Read Review</a></li>
-                                <li class="review-item"><a href="#" data-toggle="modal" data-target="#mymodal">Write Review</a></li>
+<!--                                <li class="review-item"><a href="#reviews" >Read Review</a></li>-->
+<!--                                <li class="review-item"><a href="#" data-toggle="modal" data-target="#mymodal">Write Review</a></li>-->
                             </ul>
                         </div>
                         <div class="price-box pt-20">
