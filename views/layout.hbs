@@ -89,11 +89,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     {{#if user}}
                         Hello, {{user.username}}
                         <li><span><a href="/logout">Sign out</a></span></li>
+                        <li><span><a href="/account/profile/{{user._id}}">My Account</a></span></li>
+                        <li><span><a href="checkout.html">Checkout</a></span></li>
                     {{else}}
                         <li><span><a href="/login">Sign in</a></span></li>
                     {{/if}}
-                  <li><span><a href="/users/profile/{{user._id}}">My Account</a></span></li>
-                  <li><span><a href="checkout.html">Checkout</a></span></li>
                 </ul>
               </div>
             </div>
