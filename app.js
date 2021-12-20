@@ -50,7 +50,7 @@ app.use('/', indexRouter);
 app.use('/', authRouter);
 app.use('/register', registerRouter);
 app.use('/login', loginRouter);
-app.use('/account', accountRouter);
+app.use('/account', loggedInUserGuard, accountRouter);
 app.use('/search',searchRouter);
 app.use('/products', productsRouter);
 app.use('/product-detail', productDetailsRouter);

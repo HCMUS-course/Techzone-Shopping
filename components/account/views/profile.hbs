@@ -14,6 +14,10 @@
                         <label style="color:red;">Updating user's profile successfully!!!</label>
                     {{/if}}
                     <div><br></div>
+                    {{#if resultChangePassword}}
+                        <label style="color:red;">Updating password successfully!!!</label>
+                    {{/if}}
+                    <div><br></div>
                     <div class="d-flex justify-content-between align-items-center mb-3">
                         <h4 class="text-right">Profile</h4>
                     </div>
@@ -51,7 +55,12 @@
         </div>
         <div class="mt-5 text-center">
             <a href="/account/profile/edit/{{user._id}}"><button class="btn btn-primary profile-button" type="button">Edit profile</button></a>
-            <a href="#"><button class="btn btn-primary profile-button" type="button">Change password</button></a>
+            <a>&emsp;</a>
+            <a href="/account/password/change/{{user._id}}"><button class="btn btn-primary profile-button" type="button">Change password</button></a>
+        </div>
+        <div class="row mt-3">
+        </div>
+        <div class="row mt-3">
         </div>
     </div>
 </div>

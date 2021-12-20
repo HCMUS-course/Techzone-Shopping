@@ -9,4 +9,8 @@ router.use('/profile/edit', express.static('public'));
 router.get('/profile/edit/:id', accountController.getEditProfile);
 router.post('/profile/edit/:id', accountController.updateProfile);
 
+router.use('/password/change', express.static('public'));
+router.get('/password/change/:id', accountController.getChangePassword);
+router.post('/password/change/:id', accountController.updatePassword);
+
 module.exports = router;

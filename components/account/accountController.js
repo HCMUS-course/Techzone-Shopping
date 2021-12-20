@@ -37,3 +37,23 @@ exports.updateProfile =  async (req, res, next) =>{
         res.render('account/views/profile', {user, changingStatus});
     }
 }
+
+exports.getChangePassword = async (req, res, next) =>{
+    res.render('account/views/changePassword', {validOldPassword: true});
+}
+
+exports.updatePassword = async (req, res, next) =>{
+    const id = req.params.id;
+    const password = req.body.password;
+    const newPassword = req.body.newPassword;
+    const user = await accountService.getOneAccount(id);
+    const validOldPassword = await accountService.confirmPassword(password, user);
+
+    if (!validOldPassword) {
+        res.render('account/views/changePassword', {validOldPassword});
+    } else {
+        const result = await accountService.updatePassword(id, newPassword);
+        const newUser = await accountService.getOneAccount(id);
+        res.render('account/views/profile', {newUser, resultChangePassword:true});
+    }
+}
