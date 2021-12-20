@@ -6,7 +6,7 @@ const logger = require('morgan');
 const session = require('express-session')
 
 const indexRouter = require('./routes/index');
-const accountRouter = require('./routes/account');
+const accountRouter = require('./components/account');
 
 const registerRouter = require('./routes/register');
 const loginRouter = require('./routes/login');
@@ -50,8 +50,8 @@ app.use('/', indexRouter);
 app.use('/', authRouter);
 app.use('/register', registerRouter);
 app.use('/login', loginRouter);
-app.use('/search',searchRouter);
 app.use('/account', accountRouter);
+app.use('/search',searchRouter);
 app.use('/products', productsRouter);
 app.use('/product-detail', productDetailsRouter);
 app.use('/contact', contactRouter);
