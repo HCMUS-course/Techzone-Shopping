@@ -18,7 +18,7 @@ const loggedInUserGuard = require('./middlewares/loggedInUserGuard');
 const searchRouter=require("./components/products/searchRouter")
 const cartRouter=require('./components/cart/index')
 const ApiRouter=require('./api/index')
-
+const orderRouter = require('./components/order/index');
 const passport = require("./passport");
 
 const app = express();
@@ -55,9 +55,9 @@ app.use('/search',searchRouter);
 app.use('/products', productsRouter);
 app.use('/product-detail', productDetailsRouter);
 app.use('/contact', contactRouter);
-app.use('/cart',loggedInUserGuard,cartRouter)
-app.use('/api',ApiRouter)
-
+app.use('/cart',loggedInUserGuard,cartRouter);
+app.use('/api',ApiRouter);
+app.use('/order',loggedInUserGuard,orderRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
