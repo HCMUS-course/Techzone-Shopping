@@ -18,7 +18,8 @@ router.post('/', async function(req, res){
       cart : cart,
       address : req.body.address,
       phoneNumber : req.body.phone,
-      date : req.body.date
+      date : req.body.date,
+      status : "preparing"
     }
 
     const newvalues = { $set: {items: [], totalQty: 0,totalPrice: 0, userId :userId } };
@@ -29,7 +30,7 @@ router.post('/', async function(req, res){
       
       newOrder.items.push(temp);
       newOrder.userId =  userId;
-
+    
      
       newOrder.save((err,doc)=>{
         if(!err)

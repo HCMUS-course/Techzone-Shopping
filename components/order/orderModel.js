@@ -70,10 +70,12 @@ const orderShema = mongoose.Schema(
             cart : cartSchema,
             address : String,
             phoneNumber : String,
-            date : String
+            date : String,
+            status : String
         }
         ],
         userId : String
+        
     },
     {
         versionKey: false 
