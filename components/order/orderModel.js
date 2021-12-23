@@ -65,10 +65,15 @@ const cartSchema=mongoose.Schema(
 
 const orderShema = mongoose.Schema(
     {
-        cart : cartSchema,
-        address : String,
-        phoneNumber : String,
-        date : String
+        items : [
+            {
+            cart : cartSchema,
+            address : String,
+            phoneNumber : String,
+            date : String
+        }
+        ],
+        userId : String
     },
     {
         versionKey: false 

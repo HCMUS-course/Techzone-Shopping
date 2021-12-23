@@ -5,34 +5,54 @@ const Order=require("./orderModel");
 const orderController=require("./orderController")
 
 router.get('/',orderController.list)
-//router.post('/',orderController.setOrder)
+
 router.post('/', async function(req, res){
     
-
     const userId = req.user._id;
-    console.log(userId);
+    
     const cart =await Cart.findOne({userId:userId}).lean();
    
-    
-    
-    const newOrder = new Order();
-    newOrder.cart = cart;
-    newOrder.address = req.body.address;
-    newOrder.phoneNumber = req.body.phone;
-    newOrder.date = req.body.date;
+    const order =await Order.findOne({userId:userId}).lean();
+
+    const temp = {
+      cart : cart,
+      address : req.body.address,
+      phoneNumber : req.body.phone,
+      date : req.body.date
+    }
 
     const newvalues = { $set: {items: [], totalQty: 0,totalPrice: 0, userId :userId } };
     await Cart.updateOne({userId:userId},newvalues)
-    newOrder.save((err,doc)=>{
-      if(!err)
-      res.redirect('/cart');
+
+    if(order == null){
+      const newOrder = new Order();
       
-      else{
-        console.log('Error during record inserted: '+ err);
-      }
+      newOrder.items.push(temp);
+      newOrder.userId =  userId;
 
-    });
+     
+      newOrder.save((err,doc)=>{
+        if(!err)
+        res.redirect('/cart');
+        
+        else{
+          console.log('Error during record inserted: '+ err);
+        }
+  
+      });
+    }
+    else{
+      
+      
+    
+      await Order.updateOne({userId : userId},{$push:{items:{$each:[temp],$position:0}}}) 
+      res.redirect('/cart');
 
+    }
+    
+    
+    
   });
+
 
 module.exports=router
