@@ -1,6 +1,5 @@
 const productService = require('./productService');
-const {pagination}=require('../helper/pagination-helper')
-const {ObjectId} = require('mongodb');
+const {pagination}=require('../helper/pagination-helper');
 
 const productPerPage = 4;
 
@@ -16,12 +15,12 @@ exports.list = async function(req,res){
 exports.detail = async function(req, res){
     const id = req.params.id;
     await productService.increaseViewCounts(id);
-    const product = await productService.detail(ObjectId(id));
+    const product = await productService.detail(id);
 
     const productType = await productService.getProductType(product);
     const relatedProducts = await productService.getRelatedProducts(productType, id);
     const numOfRelatedProducts = relatedProducts.length;
-    product.stringify = JSON.stringify(product);
+
     res.render('products/views/product-detail',{ product, relatedProducts, numOfRelatedProducts});
 };
 

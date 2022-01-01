@@ -1,12 +1,11 @@
 const Product = require('./productModel');
 
 //exports.list = () => Product.find({}).lean();
-exports.detail = (id) => Product.findOne({_id : id}).lean();
+exports.detail = (id) => Product.findById(id).lean();
 
 exports.getOneProduct = (id) =>{
     const product = this.detail(id);
 }
-
 
 exports.getProductType = (product) =>{
     const type = product.productType;
@@ -22,9 +21,6 @@ exports.increaseViewCounts = async (id) =>{
         { $inc: {viewCounts: 1}}
     );
 }
-
-
-
 
 exports.list = (pageNum,productPerPage) => {
    // số lượng sản phẩm xuất hiện trên 1 page
