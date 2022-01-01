@@ -10,6 +10,7 @@
     </div>
 </div>
 <!-- Li's Breadcrumb Area End Here -->
+
 <!-- content-wraper start -->
 <div class="content-wraper">
     <div class="container">
@@ -76,10 +77,6 @@
                                     </div>
                                 </div>
                                 {{!-- <button id='add-to-cart-btn' class="add-to-cart" >Add to cart</button> --}}
- 
-                       
-
-
                             </form>
                         </div>
                         <div class="product-additional-info pt-25">
@@ -128,6 +125,7 @@
     </div>
 </div>
 <!-- content-wraper end -->
+
 <!-- Begin Product Area -->
 <div class="product-area pt-35">
     <div class="container">
@@ -140,102 +138,102 @@
                         <li><a data-toggle="tab" href="#reviews"><span>Reviews</span></a></li>
                     </ul>               
                 </div>
-                <!-- Begin Li's Tab Menu Content Area -->
-            </div>
-        </div>
-        <div class="tab-content">
-            <div id="description" class="tab-pane active show" role="tabpanel">
-                <div class="product-description">
-                {{#each product.description}}
-                    <p>{{this}}</p>
-                {{/each}}
-                </div>
-            </div>
-            <div id="product-details" class="tab-pane" role="tabpanel">
-                <div class="product-details-manufacturer">
-                    <p>Weight: {{product.detail.itemWeight}}</p>
-                    <p>Model: {{product.detail.modelName}}</p>
-                    <p>Processor: {{product.detail.processor}}</p>
-                    <p>Graphics Card: {{product.detail.graphicsCard}}</p>
-                    <p>OS: {{product.detail.os}}</p>
-                    <p>Ram: {{product.detail.ram}}</p>
-                    <p>Storage: {{product.detail.storage}}</p>
-                    <p>Webcam: {{product.detail.webcam}}</p>
-                    <p>Battery: {{product.detail.battery}}</p>
-                    <p>Power Adapter: {{product.detail.powerAdapter}}</p>
-                    <p>Manufacturer: {{product.detail.manufacturer}}</p>
-                    <p>Release Date: {{product.detail.releaseDate}}</p>
-                </div>
-            </div>
-            <div id="reviews" class="tab-pane" role="tabpanel">
-                <div class="product-reviews">
-                    <div  class="product-details-comment-block">
-                        {{!-- <div class="comment-review">
-                            <span>Grade</span>
-                            <ul class="rating">
-                                <li><i class="fa fa-star-o"></i></li>
-                                <li><i class="fa fa-star-o"></i></li>
-                                <li><i class="fa fa-star-o"></i></li>
-                                <li class="no-star"><i class="fa fa-star-o"></i></li>
-                                <li class="no-star"><i class="fa fa-star-o"></i></li>
-                            </ul>
-                        </div> --}}
-                         <div id="data-container"></div>
-                        {{!-- <div id="reviews-area">
-                            {{#each product.comment}}
-                      <div class="comment-author-infos pt-25">
-                                <span>{{username}}</span>
-                                <em>{{createAt}}</em>
-                                {{!-- <div class="comment-details"> --}}
-                                {{!-- <h4 class="title-block">Uiss macbook nhu cdb</h4> --}}
-                                <p>{{content}}</p>
-                            {{!-- </div> --}}
-                            </div> 
-                       {{!-- {{/each}}  --}}
-                         
-                           
-                            <div id="pagination"></div>
-                            </br>
-                          
+                <div class="row">
+                    <div class="tab-content">
+                        <div id="description" class="tab-pane active show" role="tabpanel">
+                            <div class="product-description">
+                                <div class="product-details-comment-block">
+                                    {{#each product.description}}
+                                        <p>{{this}}</p>
+                                    {{/each}}
+                                </div>
+                            </div>
                         </div>
-                   
-                        <div class="review-btn">
-                            <a class="review-links" href="#" data-toggle="modal" data-target="#mymodal">Write Your Review!</a>
+                        <div id="product-details" class="tab-pane" role="tabpanel">
+                            <div class="product-details-manufacturer">
+                                <div class="product-details-comment-block">
+                                    <p>Weight: {{product.detail.itemWeight}}</p>
+                                    <p>Model: {{product.detail.modelName}}</p>
+                                    <p>Processor: {{product.detail.processor}}</p>
+                                    <p>Graphics Card: {{product.detail.graphicsCard}}</p>
+                                    <p>OS: {{product.detail.os}}</p>
+                                    <p>Ram: {{product.detail.ram}}</p>
+                                    <p>Storage: {{product.detail.storage}}</p>
+                                    <p>Webcam: {{product.detail.webcam}}</p>
+                                    <p>Battery: {{product.detail.battery}}</p>
+                                    <p>Power Adapter: {{product.detail.powerAdapter}}</p>
+                                    <p>Manufacturer: {{product.detail.manufacturer}}</p>
+                                    <p>Release Date: {{product.detail.releaseDate}}</p>
+                                </div>
+                            </div>
                         </div>
-                        <!-- Begin Quick View | Modal Area -->
-                        <div class="modal fade modal-wrapper" id="mymodal" >
-                            <div class="modal-dialog modal-dialog-centered" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-body">
-                                        <h3 class="review-page-title">Write Your Review</h3>
-                                        <div class="modal-inner-area row">
-                                            <div class="col-lg-6">
-                                                <div class="li-review-product">
-                                                    <img src="images/product/large-size/3.jpg" alt="Li's Product">
-                                                    <div class="li-review-product-desc">
-                                                        <p class="li-product-name">{{product.name}}</p>
-                                                        <p>
-                                                            <span>{{product.features}}</span>
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6">
-                                                <div class="li-review-content">
-                                                    <!-- Begin Feedback Area -->
-                                                    <div class="feedback-area">
-                                                        <div class="feedback">
-                                                            <h3 class="feedback-title">Our Feedback</h3>
-                                                          
-                                                          
-                                                          
-                                                          {{!-- Comment form --}}
-                                                            <form id="comment-form" action="./comment" method="POST" >
-                                                            <input type="
+                        <div id="reviews" class="tab-pane" role="tabpanel">
+                            <div class="product-reviews">
+                                <div class="product-details-comment-block">
+                                    {{!-- <div class="comment-review">
+                                        <span>Grade</span>
+                                        <ul class="rating">
+                                            <li><i class="fa fa-star-o"></i></li>
+                                            <li><i class="fa fa-star-o"></i></li>
+                                            <li><i class="fa fa-star-o"></i></li>
+                                            <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                            <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                        </ul>
+                                    </div> --}}
+                                    <div id="data-container"></div>
+                                    {{!-- <div id="reviews-area">
+                                        {{#each product.comment}}
+                                    <div class="comment-author-infos pt-25">
+                                            <span>{{username}}</span>
+                                            <em>{{createAt}}</em>
+                                            {{!-- <div class="comment-details"> --}}
+                                    {{!-- <h4 class="title-block">Uiss macbook nhu cdb</h4> --}}
+                                    <p>{{content}}</p>
+                                    {{!-- </div> --}}
+                                    {{!-- {{/each}}  --}}
+
+
+                                    <div id="pagination"></div>
+                                    </br>
+
+
+                                    <div class="review-btn">
+                                        <a class="review-links" href="#" data-toggle="modal" data-target="#mymodal">Write Your Review!</a>
+                                    </div>
+                                    <!-- Begin Quick View | Modal Area -->
+                                    <div class="modal fade modal-wrapper" id="mymodal" >
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-body">
+                                                    <h3 class="review-page-title">Write Your Review</h3>
+                                                    <div class="modal-inner-area row">
+                                                        <div class="col-lg-6">
+                                                            <div class="li-review-product">
+                                                                <img src="images/product/large-size/3.jpg" alt="Li's Product">
+                                                                <div class="li-review-product-desc">
+                                                                    <p class="li-product-name">{{product.name}}</p>
+                                                                    <p>
+                                                                        <span>{{product.features}}</span>
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-6">
+                                                            <div class="li-review-content">
+                                                                <!-- Begin Feedback Area -->
+                                                                <div class="feedback-area">
+                                                                    <div class="feedback">
+                                                                        <h3 class="feedback-title">Our Feedback</h3>
+
+
+
+                                                                        {{!-- Comment form --}}
+                                                                        <form id="comment-form" action="./comment" method="POST" >
+                                                                            <input type="
                                                             " name="productId" value={{product._id}} id="product_id">
-                                                                <p class="your-opinion">
-                                                                    <label>Your Rating</label>
-                                                                    <span>
+                                                                            <p class="your-opinion">
+                                                                                <label>Your Rating</label>
+                                                                                <span>
                                                                         <select class="star-rating">
                                                                             <option value="1">1</option>
                                                                             <option value="2">2</option>
@@ -244,47 +242,112 @@
                                                                             <option value="5">5</option>
                                                                         </select>
                                                                     </span>
-                                                                </p>
-                                                                <p class="feedback-form">
-                                                                    <label for="feedback">Your Review</label>
-                                                                    <textarea id="feedback" name="content" cols="45" rows="8" aria-required="true"></textarea>
-                                                                </p>
-                                                                <div class="feedback-input">
-                                                                    {{!-- <p class="feedback-form-author">
-                                                                        <label for="author">Name<span class="required">*</span>
-                                                                        </label>
-                                                                        <input id="author" name="author" value="" size="30" aria-required="true" type="text">
-                                                                    </p>
-                                                                    <p class="feedback-form-author feedback-form-email">
-                                                                        <label for="email">Email<span class="required">*</span>
-                                                                        </label>
-                                                                        <input id="email" name="email" value="" size="30" aria-required="true" type="text">
-                                                                        <span class="required"><sub>*</sub> Required fields</span>
-                                                                    </p> --}}
-                                                                    <div class="feedback-btn pb-15">
-                                                                        <a id="review-close" href="#" class="close" data-dismiss="modal" aria-label="Close">Close</a>
-                                                                        <a  id="review-submit" href="#reviews-area" >Submit</a>
+                                                                            </p>
+                                                                            <p class="feedback-form">
+                                                                                <label for="feedback">Your Review</label>
+                                                                                <textarea id="feedback" name="content" cols="45" rows="8" aria-required="true"></textarea>
+                                                                            </p>
+                                                                            <div class="feedback-input">
+                                                                                {{!-- <p class="feedback-form-author">
+                                                                                    <label for="author">Name<span class="required">*</span>
+                                                                                    </label>
+                                                                                    <input id="author" name="author" value="" size="30" aria-required="true" type="text">
+                                                                                </p>
+                                                                                <p class="feedback-form-author feedback-form-email">
+                                                                                    <label for="email">Email<span class="required">*</span>
+                                                                                    </label>
+                                                                                    <input id="email" name="email" value="" size="30" aria-required="true" type="text">
+                                                                                    <span class="required"><sub>*</sub> Required fields</span>
+                                                                                </p> --}}
+                                                                                <div class="feedback-btn pb-15">
+                                                                                    <a id="review-close" href="#" class="close" data-dismiss="modal" aria-label="Close">Close</a>
+                                                                                    <a  id="review-submit" href="#reviews-area" >Submit</a>
+                                                                                </div>
+                                                                            </div>
+                                                                        </form>
                                                                     </div>
                                                                 </div>
-                                                            </form>
+                                                                <!-- Feedback Area End Here -->
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                    <!-- Feedback Area End Here -->
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+                                    <!-- Quick View | Modal Area End Here -->
                                 </div>
                             </div>
-                        </div>   
-                        <!-- Quick View | Modal Area End Here -->
+                        </div>
                     </div>
                 </div>
+                <!-- Begin Li's Tab Menu Content Area -->
             </div>
         </div>
     </div>
 </div>
 <!-- Product Area End Here -->
 
-
-
+<!-- Begin same category -->
+<section class="product-area li-laptop-product pt-30 pb-50">
+    <div class="container">
+        <div class="row">
+            <!-- Begin Li's Section Area -->
+            <div class="col-lg-12">
+                <div class="li-section-title">
+                    <h2>
+                        <span>{{numOfRelatedProducts}} other products in the same category:</span>
+                    </h2>
+                </div>
+                <div class="row">
+                    <div class="product-active owl-carousel">
+                        {{#each relatedProducts}}
+                            <div class="col-lg-12">
+                            <!-- single-product-wrap start -->
+                            <div class="single-product-wrap">
+                                <div class="product-image">
+                                    <a href="/products/id/{{_id}}">
+                                        <img src="{{thumbnail}}" alt="Li's Product Image">
+                                    </a>
+                                    <span class="sticker">New</span>
+                                </div>
+                                <div class="product_desc">
+                                    <div class="product_desc_info">
+                                        <div class="product-review">
+                                            <h5 class="manufacturer">
+                                                <a href="/products/id/{{_id}}">{{productType}}</a>
+                                            </h5>
+                                            <div class="rating-box">
+                                                <ul class="rating">
+                                                    <li><i class="fa fa-star-o"></i></li>
+                                                    <li><i class="fa fa-star-o"></i></li>
+                                                    <li><i class="fa fa-star-o"></i></li>
+                                                    <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                    <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <h4><a class="product_name" href="/products/id/{{_id}}">{{name}}</a></h4>
+                                        <div class="price-box">
+                                            <span class="new-price">{{price}} $</span>
+                                        </div>
+                                    </div>
+                                    <div class="add-actions">
+                                        <ul class="add-actions-link">
+                                            {{!-- <li class="add-cart active"> <a id='add-to-cart-btn' class="add-to-cart" >Add to cart</a></li> --}}
+                                            <div class="buttons"> <button class="cart-button"> <span class="add-to-cart">Add to cart</span> <span class="added">Item added</span> <i class="fa fa-shopping-cart"></i> <i class="fa fa-square"></i> </button> </div>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- single-product-wrap end -->
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+            <!-- Li's Section Area End Here -->
+        </div>
+    </div>
+</section>
+<!-- End same category -->

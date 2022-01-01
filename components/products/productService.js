@@ -3,6 +3,20 @@ const Product = require('./productModel');
 //exports.list = () => Product.find({}).lean();
 exports.detail = (id) => Product.findOne({_id : id}).lean();
 
+exports.getOneProduct = (id) =>{
+    const product = this.detail(id);
+}
+
+
+exports.getProductType = (product) =>{
+    const type = product.productType;
+    return type;
+}
+
+exports.getRelatedProducts = (type, id) =>{
+    return Product.find({productType: type, _id: {$ne: id}}).lean();
+}
+
 exports.increaseViewCounts = async (id) =>{
     await Product.updateOne({ _id: id },
         { $inc: {viewCounts: 1}}

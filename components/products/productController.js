@@ -13,12 +13,16 @@ exports.list = async function(req,res){
     res.render('products/views/list', {products,pageArray:pageArray});
 };
 
-exports.detail = async function(req,res){
+exports.detail = async function(req, res){
     const id = req.params.id;
     await productService.increaseViewCounts(id);
     const product = await productService.detail(ObjectId(id));
+
+    const productType = await productService.getProductType(product);
+    const relatedProducts = await productService.getRelatedProducts(productType, id);
+    const numOfRelatedProducts = relatedProducts.length;
     product.stringify = JSON.stringify(product);
-    res.render('products/views/product-detail',{ product });
+    res.render('products/views/product-detail',{ product, relatedProducts, numOfRelatedProducts});
 };
 
 exports.search = async function(req,res){
