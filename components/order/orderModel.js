@@ -70,7 +70,8 @@ const orderShema = mongoose.Schema(
             cart : cartSchema,
             address : String,
             phoneNumber : String,
-            date : String,
+            orderDate : String,
+            deliveryDate : String,
             status : String
         }
         ],
