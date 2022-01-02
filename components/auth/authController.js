@@ -1,8 +1,7 @@
 const authService = require('./authService');
-const validateRegisterAccessibiliy = require("../helper/validateRegisterAccessibiliy");
+const validateRegisterAccessibiliy = require('../helper/validateRegisterAccessibiliy');
 
 exports.register = async (req, res) => {
-    
     const {username, email, password,confirmPassword} = req.body;
     const validateAccess = await validateRegisterAccessibiliy(username, email, password,confirmPassword);
     let validAccess=true;
@@ -14,14 +13,13 @@ exports.register = async (req, res) => {
         }
     }
 
-
     if(!validAccess)
     {
         res.render('auth/views/register', {validateAccess:validateAccess});
     }
     else{
         const user = await authService.register(username, email, password);
-        res.redirect('/login');
+        res.render('auth/views/notification');
     }
  
 };
@@ -35,3 +33,18 @@ exports.logout = (req, res) => {
     req.logout();
     res.redirect('/');
 };
+
+exports.activate = async (req, res) =>{
+    const email = req.query.email;
+    const activationString = req.query['activation-string'];
+    const result = await authService.activate(email, activationString);
+    if (result) {
+        const user = await authService.findByEmail(email);
+        req.login(user, function(err) {
+           if (err) {return next(err);}
+           return res.redirect('/');
+        });
+    } else {
+        res.render('auth/views/authentication-error');
+    }
+}

@@ -7,6 +7,7 @@
     "start:dev": "nodemon ./bin/www"
   },
   "dependencies": {
+    "@sendgrid/mail": "^7.6.0",
     "bcrypt": "^5.0.1",
     "config": "^3.3.6",
     "cookie-parser": "~1.4.4",
@@ -21,7 +22,8 @@
     "morgan": "~1.9.1",
     "paginationjs": "^2.1.5",
     "passport": "^0.5.0",
-    "passport-local": "^1.0.0"
+    "passport-local": "^1.0.0",
+    "randomstring": "^1.2.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"
