@@ -4694,6 +4694,10 @@ span.required {
   background-color: #F2F2F2;
   padding: 25px 30px 19px;
 }
+.notification-background {
+	background-color: #F2F2F2;
+	padding: 25px 30px 19px;
+}
 /*----------------------------------------*/
 /* 6.10 Li's About Us Page
 /*----------------------------------------*/
