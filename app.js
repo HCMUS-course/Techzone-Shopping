@@ -4,6 +4,9 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const session = require('express-session')
+var ua = require('universal-analytics');
+
+
 
 const indexRouter = require('./routes/index');
 const accountRouter = require('./components/account');
@@ -40,11 +43,16 @@ console.log(process.env.SESSION_SECRET);
 app.use(session({ secret: process.env.SESSION_SECRET }));
 app.use(passport.initialize());
 app.use(passport.session());
+const visitor = ua('UA-215100174-4');
 
 app.use(function (req, res, next) {
   res.locals.user = req.user;
+  /* GET home page. */
+  visitor.pageview(req.originalUrl).send()
   next();
 })
+
+
 
 app.use('/', indexRouter);
 app.use('/', authRouter);
