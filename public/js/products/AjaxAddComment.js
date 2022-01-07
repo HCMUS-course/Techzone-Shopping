@@ -121,12 +121,14 @@ document.addEventListener("DOMContentLoaded", function(event) {
   // console.log($("#user-info").val());
   let button =this;
   button.classList.add('clicked');
+  const quantity=$(".cart-plus-minus-box").attr("value");
 
   const user_id=$("#user-info").val()
 
   $.post( `/api/${user_id}/addItem`,
   {
     productId: $("#product_id").val(),
+    quantity:quantity,
   })
 
   }
