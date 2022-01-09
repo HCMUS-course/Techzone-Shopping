@@ -1,7 +1,7 @@
 const productService = require('./productService');
 const {pagination}=require('../helper/pagination-helper');
 
-const productPerPage = 4;
+const productPerPage = 6;
 
 exports.list = async function(req,res){
     const page =Number( req.params.page);
@@ -28,13 +28,28 @@ exports.search = async function(req,res){
     const key=req.query.key;
     const page=Number(req.query.page)
     const products = await productService.search(page,productPerPage,key);
-    const NumberOfResult =await productService.getNumberOfSearchProduct(key);
+    const NumberOfResult = await productService.getNumberOfSearchProduct(key);
     const pageCount = Math.ceil(NumberOfResult/productPerPage);
     const pageArray = pagination(page,pageCount);
     res.render('products/views/searchResult', {products,pageArray:pageArray,numberOfSeachResult:NumberOfResult,keyword:key});
+}
 
-} 
+exports.filter = async function(req, res){
+    const category = req.query.category;
+    const brand = req.query.brand;
+    const color = req.query.color;
+    const page = Number(req.query.page);
 
+    const key = productService.getFilterKey(category, brand, color);
+
+    const products = await productService.filter(page, productPerPage, category, brand, color);
+
+    const numberProduct = await productService.getNumberOfFilterProduct(category, brand, color);
+    const pageCount = Math.ceil(numberProduct / productPerPage);
+    const pageArray = pagination(page,pageCount);
+
+    res.render('products/views/list', {products,pageArray:pageArray, pageFilter: true, filterKey: key});
+}
 
 
 
