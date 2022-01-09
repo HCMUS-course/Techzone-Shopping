@@ -6,7 +6,11 @@ exports.detail = (id) => Product.findById(id).lean();
 exports.getOneProduct = (id) =>{
     const product = this.detail(id);
 }
-
+exports.updateStock =async  (id,num)=>{
+    await Product.updateOne({ _id: id },
+        { $inc: {stock: num}}
+    );
+}
 exports.getProductType = (product) =>{
     const type = product.productType;
     return type;

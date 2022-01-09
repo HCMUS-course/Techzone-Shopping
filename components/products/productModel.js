@@ -10,7 +10,7 @@ const productSchema = mongoose.Schema(
             status: Boolean,
             percent: Number
         },
-        stock: String,
+        stock: Number,
         screenSize:String,
         color: String,
         features:String,

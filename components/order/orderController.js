@@ -2,7 +2,7 @@ const orderServices=require("./orderService")
 const Cart = require("../cart/cartModel")
 const Order=require("./orderModel");
 const c = require("config");
-
+const Product = require("../products/productModel");
 module.exports.list=async (req,res)=>{
   
   
@@ -29,8 +29,9 @@ module.exports.createOrder = async (req,res) => {
     const userId = req.user._id;
     
     const cart = await orderServices.getCart(userId)
-   
+    
     const order = await orderServices.getOrder(userId)
+    
     var newDate = new Date()
     var datetime =  newDate.getFullYear() + "-" +newDate.getMonth() + 1 + "-" + newDate.getDate() 
     const temp = {
