@@ -109,23 +109,17 @@
                                 </div>
                                 <div class="col-lg-6 col-md-6">
                                     <ul class="pagination-box">
-                                        {{#if pageFilter}}
-                                            {{#each pageArray}}
-                                                <li><a href="/products/1/filter?{{../filterKey}}&page={{this}}">{{this}}</a></li>
-                                            {{/each}}
-                                        {{else}}
-                                            {{#each pageArray}}
-                                                <li><a href="../{{this}}">{{this}}</a></li>
-                                                <!--                                        <li><a href="#" class="Previous"><i class="fa fa-chevron-left"></i> Previous</a>-->
-                                                <!--                                        </li>-->
-                                                <!--                                        <li class="active"><a href="#">1</a></li>-->
-                                                <!--                                        <li><a href="#">2</a></li>-->
-                                                <!--                                        <li><a href="#">3</a></li>-->
-                                                <!--                                        <li>-->
-                                                <!--                                            <a href="#" class="Next"> Next <i class="fa fa-chevron-right"></i></a>-->
-                                                <!--                                        </li>-->
-                                            {{/each}}
-                                        {{/if}}
+                                    {{#each pageArray}}
+                                        <li><a href="../{{this}}">{{this}}</a></li>
+<!--                                        <li><a href="#" class="Previous"><i class="fa fa-chevron-left"></i> Previous</a>-->
+<!--                                        </li>-->
+<!--                                        <li class="active"><a href="#">1</a></li>-->
+<!--                                        <li><a href="#">2</a></li>-->
+<!--                                        <li><a href="#">3</a></li>-->
+<!--                                        <li>-->
+<!--                                            <a href="#" class="Next"> Next <i class="fa fa-chevron-right"></i></a>-->
+<!--                                        </li>-->
+                                    {{/each}}
                                     </ul>
                                 </div>
                             </div>
@@ -136,66 +130,86 @@
             </div>
             <div class="col-lg-3 order-2 order-lg-1">
                 <!--sidebar-categores-box start  -->
-
                 <div class="sidebar-categores-box">
-                    <form action="filter?" method="get">
-                    <div class="sidebar-title"><h2>Filter By</h2></div>
-                    <!-- btn-clear-all start -->
-                        <button type="submit" class="btn-clear-all mb-sm-30 mb-xs-30">Filter</button>
-                        <button class="btn-clear-all mb-sm-30 mb-xs-30">Clear all</button>
-                    <!-- btn-clear-all end -->
-                    <!-- filter-sub-area start -->
-                    <div class="filter-sub-area pt-sm-10 pt-xs-10">
-                        <h5 class="filter-sub-titel">Categories</h5>
-                        <div class="categori-checkbox">
-                            <!--                            <form action="#">-->
-                            <ul>
-                                <li><input type="radio" name="category" value="laptop"><a>Laptop</a></li>
-                                <li><input type="radio" name="category" value="smartphone"><a>Smartphone</a></li>
-                                <li><input type="radio" name="category" value="tablet"><a>Tablet</a></li>
-                                <li><input type="radio" name="category" value="tv"><a></a>TV</li>
-                            </ul>
-                            <!--                            </form>-->
-                        </div>
+                    <div class="sidebar-title">
+                        <h2>Filter By</h2>
                     </div>
-                    <!-- filter-sub-area end -->
+                    <!-- btn-clear-all start -->
+                    <button class="btn-clear-all mb-sm-30 mb-xs-30">Clear all</button>
+                    <!-- btn-clear-all end -->
                     <!-- filter-sub-area start -->
                     <div class="filter-sub-area">
                         <h5 class="filter-sub-titel">Brand</h5>
                         <div class="categori-checkbox">
-<!--                            <form action="">-->
+                            <form action="#">
                                 <ul>
-                                    <li><input type="radio" name="brand" value="Apple"><a>Apple</a></li>
-                                    <li><input type="radio" name="brand" value="Dell"><a>Dell</a></li>
-                                    <li><input type="radio" name="brand" value="Samsung"><a>Samsung</a></li>
-                                    <li><input type="radio" name="brand" value="Sony"><a>Sony</a></li>
+                                    <li><input type="checkbox" name="product-categori"><a href="#">Prime Video (13)</a></li>
+                                    <li><input type="checkbox" name="product-categori"><a href="#">Computers (12)</a></li>
+                                    <li><input type="checkbox" name="product-categori"><a href="#">Electronics (11)</a></li>
                                 </ul>
-<!--                            </form>-->
+                            </form>
+                        </div>
+                    </div>
+                    <!-- filter-sub-area end -->
+                    <!-- filter-sub-area start -->
+                    <div class="filter-sub-area pt-sm-10 pt-xs-10">
+                        <h5 class="filter-sub-titel">Categories</h5>
+                        <div class="categori-checkbox">
+                            <form action="#">
+                                <ul>
+                                    <li><input type="checkbox" name="product-categori"><a href="#">Graphic Corner (10)</a></li>
+                                    <li><input type="checkbox" name="product-categori"><a href="#"> Studio Design (6)</a></li>
+                                </ul>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- filter-sub-area end -->
+                    <!-- filter-sub-area start -->
+                    <div class="filter-sub-area pt-sm-10 pt-xs-10">
+                        <h5 class="filter-sub-titel">Size</h5>
+                        <div class="size-checkbox">
+                            <form action="#">
+                                <ul>
+                                    <li><input type="checkbox" name="product-size"><a href="#">S (3)</a></li>
+                                    <li><input type="checkbox" name="product-size"><a href="#">M (3)</a></li>
+                                    <li><input type="checkbox" name="product-size"><a href="#">L (3)</a></li>
+                                    <li><input type="checkbox" name="product-size"><a href="#">XL (3)</a></li>
+                                </ul>
+                            </form>
                         </div>
                     </div>
                     <!-- filter-sub-area end -->
                     <!-- filter-sub-area start -->
                     <div class="filter-sub-area pt-sm-10 pt-xs-10">
                         <h5 class="filter-sub-titel">Color</h5>
-                        <div class="categori-checkbox">
-<!--                            <form action="#">-->
+                        <div class="color-categoriy">
+                            <form action="#">
                                 <ul>
-                                    <li><input type="radio" name="color" value="white"><a>White</a></li>
-                                    <li><input type="radio" name="color" value="black"><a>Black</a></li>
-                                    <li><input type="radio" name="color" value="silver"><a>Silver</a></li>
-                                    <li><input type="radio" name="color" value="blue"><a>Blue</a></li>
+                                    <li><span class="white"></span><a href="#">White (1)</a></li>
+                                    <li><span class="black"></span><a href="#">Black (1)</a></li>
+                                    <li><span class="Orange"></span><a href="#">Orange (3) </a></li>
+                                    <li><span class="Blue"></span><a href="#">Blue  (2) </a></li>
                                 </ul>
-<!--                            </form>-->
+                            </form>
                         </div>
                     </div>
-                    <input type="hidden" name="page" value="1">
                     <!-- filter-sub-area end -->
                     <!-- filter-sub-area start -->
+                    <div class="filter-sub-area pt-sm-10 pb-sm-15 pb-xs-15">
+                        <h5 class="filter-sub-titel">Dimension</h5>
+                        <div class="categori-checkbox">
+                            <form action="#">
+                                <ul>
+                                    <li><input type="checkbox" name="product-categori"><a href="#">40x60cm (6)</a></li>
+                                    <li><input type="checkbox" name="product-categori"><a href="#">60x90cm (6)</a></li>
+                                    <li><input type="checkbox" name="product-categori"><a href="#">80x120cm (6)</a></li>
+                                </ul>
+                            </form>
+                        </div>
+                    </div>
                     <!-- filter-sub-area end -->
-                    </form>
                 </div>
                 <!--sidebar-categores-box end  -->
-
                 <!-- category-sub-menu start -->
                 <div class="sidebar-categores-box mb-sm-0">
                     <div class="sidebar-title">
