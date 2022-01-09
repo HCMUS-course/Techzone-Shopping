@@ -153,16 +153,15 @@
                         <div id="product-details" class="tab-pane" role="tabpanel">
                             <div class="product-details-manufacturer">
                                 <div class="product-details-comment-block">
+                                    <p>Product type: {{product.productType}}</p>
+                                    <p>Name: {{product.name}}</p>
+                                    <p>Brand: {{product.brand}}</p>
+                                    <p>Price: {{product.price}} $</p>
+                                    <p>Screen size: {{product.screenSize}}</p>
+                                    <p>Color: {{product.color}}</p>
                                     <p>Weight: {{product.detail.itemWeight}}</p>
                                     <p>Model: {{product.detail.modelName}}</p>
-                                    <p>Processor: {{product.detail.processor}}</p>
-                                    <p>Graphics Card: {{product.detail.graphicsCard}}</p>
                                     <p>OS: {{product.detail.os}}</p>
-                                    <p>Ram: {{product.detail.ram}}</p>
-                                    <p>Storage: {{product.detail.storage}}</p>
-                                    <p>Webcam: {{product.detail.webcam}}</p>
-                                    <p>Battery: {{product.detail.battery}}</p>
-                                    <p>Power Adapter: {{product.detail.powerAdapter}}</p>
                                     <p>Manufacturer: {{product.detail.manufacturer}}</p>
                                     <p>Release Date: {{product.detail.releaseDate}}</p>
                                 </div>
@@ -308,7 +307,7 @@
                             <div class="single-product-wrap">
                                 <div class="product-image">
                                     <a href="/products/id/{{_id}}">
-                                        <img src="{{thumbnail}}" alt="Li's Product Image">
+                                        <img src="{{images.[0]}}" alt="Li's Product Image">
                                     </a>
                                     <span class="sticker">New</span>
                                 </div>
