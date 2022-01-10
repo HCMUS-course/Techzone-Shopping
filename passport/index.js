@@ -12,6 +12,10 @@ passport.use(new LocalStrategy (
         if (!isValid) {
             return done(null, false, { message: 'Incorrect password.' });
         }
+        const isAuthenticated = await authService.getAuthenticationState(user);
+        if (!isAuthenticated) {
+            return done(null, false, { message: 'Unauthenticated email.' });
+        }
         return done(null, user);
     }
 ));
@@ -19,13 +23,14 @@ passport.use(new LocalStrategy (
 passport.serializeUser(function(user, done) {
     done(null, {
         isAuthenticated: user.isAuthenticated,
+        activationString: user.activationString,
         isLock: user.isLock,
         username: user.username,
         fullname: user.fullname,
         email: user.email,
         phone: user.phone,
         address: user.address,
-        _id:user._id,
+        _id: user._id,
     });
 });
 

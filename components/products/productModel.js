@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const commentSchemma=require("./product.comment.model")
+const commentSchemma = require("./product.comment.model")
 const productSchema = mongoose.Schema(
     {
         productType: String,
@@ -10,25 +10,17 @@ const productSchema = mongoose.Schema(
             status: Boolean,
             percent: Number
         },
-        stock: String,
+        stock: Number,
         screenSize:String,
         color: String,
-        features:String,
-        thumbnail:String,
+        features: String,
+        thumbnail: String,
         images: [],
-        description: [],
+        description: String,
         detail: {
-            itemDimensions: String,
             itemWeight: String,
             modelName: String,
-            processor: String,
             os: String,
-            ram: String,
-            capacity: String,
-            mainCamera: String,
-            frontCamera: String,
-            battery: String,
-            powerAdapter: String,
             manufacturer: String,
             releaseDate: String
         },

@@ -8,7 +8,7 @@ var ua = require('universal-analytics');
 
 
 
-const indexRouter = require('./routes/index');
+const indexRouter = require('./components/home');
 const accountRouter = require('./components/account');
 
 const registerRouter = require('./routes/register');

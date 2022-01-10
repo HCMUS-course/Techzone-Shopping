@@ -22,7 +22,8 @@
                         <div class="row">
                             <div class="col-md-12 col-12 mb-20">
                                 {{#if wrongPassword}}
-                                <label>Username or password is incorrect</label>
+                                    <label>Incorrect username or password</label>
+                                    <label>Or Unauthenticated email</label>
                                 {{/if}}
                                 <label>Username</label>
                                 <input class="mb-0" type="text" name="username" placeholder="Username">
@@ -38,14 +39,14 @@
                                 </div>
                             </div>
                             <div class="col-md-4 mt-10 mb-20 text-left text-md-right">
-                                <a href="#"> Forgotten password?</a>
+                                <a href="/forgot-password"> Forgotten password?</a>
                             </div>
                             <div class="col-md-12">
                                 <button class="register-button mt-0" type="submit">Log in</button>
                             </div>
                             <p></p>
                             <div class="col-md-12 col-12 mb-20">
-                                <label><br></br>Don't have an account? <a href="/register">Register now!</a></label>
+                                <label><br>Don't have an account? <a href="/register">Register now!</a></label>
                             </div>
                         </div>
                     </div>

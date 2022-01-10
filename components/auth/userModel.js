@@ -1,9 +1,9 @@
 const mongoose = require("mongoose");
 
-const userSchema = mongoose.Schema(
-    {
+const userSchema = mongoose.Schema({
         role: Number,
         isAuthenticated: Boolean,
+        activationString: String,
         isLock: Boolean,
         username: String,
         password: String,
@@ -11,7 +11,7 @@ const userSchema = mongoose.Schema(
         email: String,
         phone: String,
         address: String,
-        verify_token: String
+        resetToken: String
     }
 );
 

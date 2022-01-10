@@ -14,6 +14,7 @@ router.use('/id/:route', express.static('public'));
 router.get('/id/:id', productController.detail);
 router.post('/id/:id/comment', commentController.postComment);
 
+router.get('/:id/filter', productController.filter);
 
 // router.use('/search', express.static('public'));
 
