@@ -95,7 +95,7 @@
                         Hello, {{user.username}}
                         <li><span><a href="/logout">Sign out</a></span></li>
                         <li><span><a href="/account/profile/{{user._id}}">My Account</a></span></li>
-                        <li><span><a href="/order">Checkout</a></span></li>
+<!--                        <li><span><a href="/order">Checkout</a></span></li>-->
                         <li><span><a href="/order/history">History</a></span></li>
                     {{else}}
                         <li><span><a href="/login">Sign in</a></span></li>
@@ -142,20 +142,12 @@
               <!-- Begin Header Middle Right Area -->
               <div class="header-middle-right">
                 <ul class="hm-menu">
-                  <!-- Begin Header Middle Wishlist Area -->
-                  <li class="hm-wishlist">
-                    <a href="wishlist.html">
-                      <span class="cart-item-count wishlist-item-count">0</span>
-                      <i class="fa fa-heart-o"></i>
-                    </a>
-                  </li>
-                  <!-- Header Middle Wishlist Area End Here -->
                   <!-- Begin Header Mini Cart Area -->
                   <li class="hm-minicart">
-                    <div id="cart-shopping" class="hm-minicart-trigger">
+                    <div class="hm-minicart-trigger" href="/cart">
                       <span class="item-icon"></span>
-                      <span class="item-text">£80.00
-                        <span id="cart-count" class="cart-item-count">2</span>
+                      <span class="item-text" href="/cart">&nbsp;&nbsp;&nbsp;&nbsp;Cart
+                        <span id="cart-count" class="cart-item-count"></span>
                       </span>
                     </div>
                     <span></span>
