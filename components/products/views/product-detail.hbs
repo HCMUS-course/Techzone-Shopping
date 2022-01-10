@@ -46,6 +46,7 @@
                         <div class="rating-box pt-20">
                             <ul class="rating rating-with-review-item">
                                 <li><i class="fa fa-eye"></i><a> {{product.viewCounts}} &nbsp;</a></li>
+                                <li><i class="fa fa-check-circle"></i><a> {{buyCounts}} </a></li>
                                 <li><i class="fa fa-star-o"></i></li>
                                 <li><i class="fa fa-star-o"></i></li>
                                 <li><i class="fa fa-star-o"></i></li>
@@ -325,6 +326,10 @@
                                                     <li class="no-star"><i class="fa fa-star-o"></i></li>
                                                     <li class="no-star"><i class="fa fa-star-o"></i></li>
                                                 </ul>
+                                            </div>
+                                            <div style="font-size: 13px">
+                                                <i class="fa fa-eye"></i><a > {{viewCounts}} &nbsp;</a>
+                                                <i class="fa fa-check-circle"></i><a> {{buyCounts}}</a>
                                             </div>
                                         </div>
                                         <h4><a class="product_name" href="/products/id/{{_id}}">{{name}}</a></h4>
