@@ -23,9 +23,9 @@
                                                 <th class="li-product-remove">remove</th>
                                                 <th class="li-product-thumbnail">images</th>
                                                 <th class="cart-product-name">Product</th>
-                                                <th class="li-product-price">Unit Price</th>
-                                                <th class="li-product-quantity">Quantity</th>
-                                                <th class="li-product-subtotal">Total</th>
+                                                <th class="li-product-price">Price</th>
+                                               {{!-- <th class="li-product-quantity">Quantity</th>
+                                                <th class="li-product-subtotal">Total</th>--}}
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -38,7 +38,7 @@
                                                     <td class="li-product-thumbnail"><a href="#"><img src="{{images.[0]}}" alt="Product Image" width="150" height="150"></a></td>
                                                     <td class="li-product-name"><a href="#">{{name}}</a></td>
                                                     <td class="li-product-price"><span class="amount">${{price}}</span></td>
-                                                    <td class="quantity">
+                                                    {{!--<td class="quantity">
                                                         <label>Quantity</label>
                                                         <div class="cart-plus-minus">
                                                             <input class="cart-plus-minus-box" value="1" type="text">
@@ -46,7 +46,7 @@
                                                             <div class="inc qtybutton"><i class="fa fa-angle-up"></i></div>
                                                         </div>
                                                     </td>
-                                                    <td class="product-subtotal"><span class="amount">$70.00</span></td>
+                                                    <td class="product-subtotal"><span class="amount">$70.00</span></td>--}}
                                                 </tr>
                                                 {{/each}}
                                          
