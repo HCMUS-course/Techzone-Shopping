@@ -16,12 +16,28 @@ module.exports.postItem=async (userId,newItemId)=>{
         productService.updateStock(newItemId,-1)
     
     
-    const cart = await Cart.findOne({userId:userId}).lean()
+    var cart = await Cart.findOne({userId:userId}).lean()
+    console.log(cart)
+    if(cart == null){
+        const it = []
+        
+        const newCart = new Cart()
+        newCart.items = it
+        newCart.totalQty = 0
+        newCart.totalPrice = 0
+        newCart.userId = userId
+        newCart.save()
+        const s = newItem.price;
+        await Cart.updateOne({userId:userId},{$push:{items:newItem}})
+        await Cart.updateOne({userId:userId},{$set:{totalPrice : s}})
+    }
+    else{
+        const sum = cart.totalPrice + newItem.price
     
-    const sum = cart.totalPrice + newItem.price
-    
-    await Cart.updateOne({userId:userId},{$push:{items:newItem}})
-    await Cart.updateOne({userId:userId},{$set:{totalPrice : sum}})
+        await Cart.updateOne({userId:userId},{$push:{items:newItem}})
+        await Cart.updateOne({userId:userId},{$set:{totalPrice : sum}})
+    }
+   
     }
     return Cart.findOne({userId:userId}).lean()
 
