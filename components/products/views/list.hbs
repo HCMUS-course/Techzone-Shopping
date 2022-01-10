@@ -92,7 +92,13 @@
                                                     <div class="add-actions">
                                                         <ul class="add-actions-link">
                                                             {{!-- <li class="add-cart active"> <a id='add-to-cart-btn' class="add-to-cart" >Add to cart</a></li> --}}
-                                                            <div class="buttons"> <button class="cart-button"> <span class="add-to-cart">Add to cart</span> <span class="added">Item added</span> <i class="fa fa-shopping-cart"></i> <i class="fa fa-square"></i> </button> </div>
+                                                            <div class="buttons"> <button class="cart-button" product_id={{_id}} user_id={{../user._id}} onclick="const user_id=$(this).attr('user_id');  $.post( `/api/${user_id}/addItem`,
+  {
+    productId: $(this).attr('product_id'),
+    quantity:1,
+  })
+
+  "> <span class="add-to-cart">Add to cart</span> <span class="added">Item added</span> <i class="fa fa-shopping-cart"></i> <i class="fa fa-square"></i> </button> </div>
                                                         </ul>
                                                     </div>
                                                 </div>
