@@ -11,3 +11,7 @@ exports.getHomepage = async function(req,res){
 
     res.render('../views/index', {bestSellers, bestViewers, laptops, smartphones, tablets, tvs});
 };
+
+exports.getAboutUsPage = async function(req,res){
+    res.render('../views/about-us');
+};
