@@ -38,6 +38,18 @@ exports.list = (pageNum,productPerPage) => {
         .exec()
 }
 
+exports.getAllCategories = () => {
+    return Product.distinct("productType");
+}
+
+exports.getAllBrands = () => {
+    return Product.distinct("brand");
+}
+
+exports.getAllColors = () => {
+    return Product.distinct("color");
+}
+
 exports.search = (pageNum,productPerPage,key) => {
     let page = pageNum || 1;
     let re = new RegExp(key);

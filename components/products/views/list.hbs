@@ -151,7 +151,6 @@
                     <div class="sidebar-title"><h2>Filter By</h2></div>
                     <!-- btn-clear-all start -->
                         <button type="submit" class="btn-clear-all mb-sm-30 mb-xs-30">Filter</button>
-                        <button class="btn-clear-all mb-sm-30 mb-xs-30">Clear all</button>
                     <!-- btn-clear-all end -->
                     <!-- filter-sub-area start -->
                     <div class="filter-sub-area pt-sm-10 pt-xs-10">
@@ -159,10 +158,12 @@
                         <div class="categori-checkbox">
                             <!--                            <form action="#">-->
                             <ul>
-                                <li><input type="radio" name="category" value="laptop"><a>Laptop</a></li>
-                                <li><input type="radio" name="category" value="smartphone"><a>Smartphone</a></li>
-                                <li><input type="radio" name="category" value="tablet"><a>Tablet</a></li>
-                                <li><input type="radio" name="category" value="tv"><a></a>TV</li>
+                                {{#each categories}}
+                                <li><input type="radio" name="category" value="{{this}}"><a>{{this}}</a></li>
+<!--                                <li><input type="radio" name="category" value="smartphone"><a>Smartphone</a></li>-->
+<!--                                <li><input type="radio" name="category" value="tablet"><a>Tablet</a></li>-->
+<!--                                <li><input type="radio" name="category" value="tv"><a></a>TV</li>-->
+                                {{/each}}
                             </ul>
                             <!--                            </form>-->
                         </div>
@@ -174,10 +175,12 @@
                         <div class="categori-checkbox">
 <!--                            <form action="">-->
                                 <ul>
-                                    <li><input type="radio" name="brand" value="Apple"><a>Apple</a></li>
-                                    <li><input type="radio" name="brand" value="Dell"><a>Dell</a></li>
-                                    <li><input type="radio" name="brand" value="Samsung"><a>Samsung</a></li>
-                                    <li><input type="radio" name="brand" value="Sony"><a>Sony</a></li>
+                                    {{#each brands}}
+                                        <li><input type="radio" name="brand" value="{{this}}"><a>{{this}}</a></li>
+<!--                                        <li><input type="radio" name="brand" value="Dell"><a>Dell</a></li>-->
+<!--                                        <li><input type="radio" name="brand" value="Samsung"><a>Samsung</a></li>-->
+<!--                                        <li><input type="radio" name="brand" value="Sony"><a>Sony</a></li>-->
+                                    {{/each}}
                                 </ul>
 <!--                            </form>-->
                         </div>
@@ -189,10 +192,12 @@
                         <div class="categori-checkbox">
 <!--                            <form action="#">-->
                                 <ul>
-                                    <li><input type="radio" name="color" value="white"><a>White</a></li>
-                                    <li><input type="radio" name="color" value="black"><a>Black</a></li>
-                                    <li><input type="radio" name="color" value="silver"><a>Silver</a></li>
-                                    <li><input type="radio" name="color" value="blue"><a>Blue</a></li>
+                                    {{#each colors}}
+                                        <li><input type="radio" name="color" value="{{this}}"><a>{{this}}</a></li>
+<!--                                        <li><input type="radio" name="color" value="black"><a>Black</a></li>-->
+<!--                                        <li><input type="radio" name="color" value="silver"><a>Silver</a></li>-->
+<!--                                        <li><input type="radio" name="color" value="blue"><a>Blue</a></li>-->
+                                    {{/each}}
                                 </ul>
 <!--                            </form>-->
                         </div>
@@ -206,22 +211,22 @@
                 <!--sidebar-categores-box end  -->
 
                 <!-- category-sub-menu start -->
-                <div class="sidebar-categores-box mb-sm-0">
-                    <div class="sidebar-title">
-                        <h2>Laptop</h2>
-                    </div>
-                    <div class="category-tags">
-                        <ul>
-                            <li><a href="# ">Devita</a></li>
-                            <li><a href="# ">Cameras</a></li>
-                            <li><a href="# ">Sony</a></li>
-                            <li><a href="# ">Computer</a></li>
-                            <li><a href="# ">Big Sale</a></li>
-                            <li><a href="# ">Accessories</a></li>
-                        </ul>
-                    </div>
-                    <!-- category-sub-menu end -->
-                </div>
+<!--                <div class="sidebar-categores-box mb-sm-0">-->
+<!--                    <div class="sidebar-title">-->
+<!--                        <h2>Laptop</h2>-->
+<!--                    </div>-->
+<!--                    <div class="category-tags">-->
+<!--                        <ul>-->
+<!--                            <li><a href="# ">Devita</a></li>-->
+<!--                            <li><a href="# ">Cameras</a></li>-->
+<!--                            <li><a href="# ">Sony</a></li>-->
+<!--                            <li><a href="# ">Computer</a></li>-->
+<!--                            <li><a href="# ">Big Sale</a></li>-->
+<!--                            <li><a href="# ">Accessories</a></li>-->
+<!--                        </ul>-->
+<!--                    </div>-->
+<!--                    &lt;!&ndash; category-sub-menu end &ndash;&gt;-->
+<!--                </div>-->
             </div>
         </div>
     </div>

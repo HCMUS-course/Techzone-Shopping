@@ -4845,7 +4845,6 @@ span.required {
 	margin-top: 30px;
 }
 .btn-clear-all::before {
-	content: "\f00d";
 	font-family: "fontawesome";
 	margin-right: 15px;
 }
