@@ -12,6 +12,12 @@ passport.use(new LocalStrategy (
         if (!isValid) {
             return done(null, false, { message: 'Incorrect password.' });
         }
+
+        const isLock = await authService.isLock(user);
+        if (isLock) {
+            return done(null, false, { message: 'Account locked!.' });
+        }
+
         const isAuthenticated = await authService.getAuthenticationState(user);
         if (!isAuthenticated) {
             return done(null, false, { message: 'Unauthenticated email.' });

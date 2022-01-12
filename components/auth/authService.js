@@ -77,6 +77,10 @@ exports.getAuthenticationState = async (user) => {
     return user.isAuthenticated;
 }
 
+exports.isLock = async (user) => {
+    return user.isLock;
+}
+
 exports.activate = async (email, activationString) =>{
     const account = userModel.findOne({
         email,
