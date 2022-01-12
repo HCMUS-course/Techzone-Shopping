@@ -1,4 +1,5 @@
 const Product = require('./productModel');
+const productModel = require("../products/productModel");
 
 //exports.list = () => Product.find({}).lean();
 exports.detail = (id) => Product.findById(id).lean();
@@ -206,8 +207,39 @@ exports.filter = (pageNum, productPerPage, category, brandLowercase, color) =>{
                 .lean()
                 .exec()
     }
+}
 
+exports.sort = (pageNum, productPerPage, type) => {
+    let page = pageNum || 1;
 
-
-
+    switch (type) {
+        case "bestsales":
+            return productModel
+                .find()
+                .sort({buyCounts: -1})
+                .skip((productPerPage * page) - productPerPage)
+                .limit(productPerPage)
+                .lean()
+        case "mostviewed":
+            return productModel
+                .find()
+                .sort({viewCounts: -1})
+                .skip((productPerPage * page) - productPerPage)
+                .limit(productPerPage)
+                .lean()
+        case "price-asc":
+            return productModel
+                .find()
+                .sort({price: 1})
+                .skip((productPerPage * page) - productPerPage)
+                .limit(productPerPage)
+                .lean()
+        case "price-des":
+            return productModel
+                .find()
+                .sort({price: -1})
+                .skip((productPerPage * page) - productPerPage)
+                .limit(productPerPage)
+                .lean()
+    }
 }

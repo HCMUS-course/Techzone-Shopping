@@ -59,12 +59,30 @@ exports.filter = async function(req, res){
 
     const products = await productService.filter(page, productPerPage, category, brand, color);
 
-    const numberProduct = await productService.getNumberOfFilterProduct(category, brand, color);
+    const numberProduct = await productService.getNumberOfProduct();
     const pageCount = Math.ceil(numberProduct / productPerPage);
     const pageArray = pagination(page,pageCount);
 
     res.render('products/views/list', {products, pageArray:pageArray, pageFilter: true, filterKey: key, categories, brands, colors});
 }
 
+exports.sort = async function(req, res){
+    const type = req.query.type;
+    const page = Number(req.query.page);
+
+    const key = "type=" + type;
+
+    const categories = await productService.getAllCategories();
+    const brands = await productService.getAllBrands();
+    const colors = await productService.getAllColors();
+
+    const products = await productService.sort(page, productPerPage, type);
+
+    const numberProduct = await productService.getNumberOfProduct();
+    const pageCount = Math.ceil(numberProduct / productPerPage);
+    const pageArray = pagination(page,pageCount);
+
+    res.render('products/views/list', {products, pageArray:pageArray, pageSort: true, sortKey: key, categories, brands, colors});
+}
 
 

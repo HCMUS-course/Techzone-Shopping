@@ -34,14 +34,12 @@
                     <div class="product-select-box">
                         <div class="product-short">
                             <p>Sort By:</p>
-                            <select class="nice-select">
-                                <option value="trending">Relevance</option>
-                                <option value="sales">Name (A - Z)</option>
-                                <option value="sales">Name (Z - A)</option>
-                                <option value="rating">Price (Low &gt; High)</option>
-                                <option value="date">Rating (Lowest)</option>
-                                <option value="price-asc">Model (A - Z)</option>
-                                <option value="price-asc">Model (Z - A)</option>
+                            <select class="nice-select" onchange="location=this.value;">
+                                <option value="">None</option>
+                                <option value="sort?type=bestsales&page=1"><a href="">Best sales</a></option>
+                                <option value="sort?type=mostviewed&page=1"><a href="">Most viewed</a></option>
+                                <option value="sort?type=price-asc&page=1"><a href="">Price (Low > High)</a></option>
+                                <option value="sort?type=price-des&page=1"><a href="">Price (High > Low)</a></option>
                             </select>
                         </div>
                     </div>
@@ -121,6 +119,10 @@
                                         {{#if pageFilter}}
                                             {{#each pageArray}}
                                                 <li><a href="/products/1/filter?{{../filterKey}}&page={{this}}">{{this}}</a></li>
+                                            {{/each}}
+                                        {{else if pageSort}}
+                                            {{#each pageArray}}
+                                                <li><a href="/products/1/sort?{{../sortKey}}&page={{this}}">{{this}}</a></li>
                                             {{/each}}
                                         {{else}}
                                             {{#each pageArray}}
