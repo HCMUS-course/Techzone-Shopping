@@ -59,7 +59,7 @@ exports.filter = async function(req, res){
 
     const products = await productService.filter(page, productPerPage, category, brand, color);
 
-    const numberProduct = await productService.getNumberOfProduct();
+    const numberProduct = await productService.getNumberOfFilterProduct(category, brand, color);
     const pageCount = Math.ceil(numberProduct / productPerPage);
     const pageArray = pagination(page,pageCount);
 
